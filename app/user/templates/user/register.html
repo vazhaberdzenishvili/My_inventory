@@ -15,6 +15,11 @@
                 <div class="regfield">
                     {{ form.username(class_="form-control",placeholder='Enter your username') }}
                 </div>
+                <ul>
+                    {%for error in form.username.errors %}
+                        <li style="color: red">{{error}}</li>
+                    {%endfor%}
+                </ul>
                 <div class="regfield">
                     {{ form.password(class_="form-control",placeholder='Enter your password') }}
                 </div>
