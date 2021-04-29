@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container p-3">
+        <div class="jumbotron">
+          <h1 class="display-4">About</h1>
+          <p class="lead">This is a site for online inventory management</p>
+          <hr class="my-4">
+          <p>the source of the site you can find om my <a href="https://github.com/vazhaberdzenishvili" role="button">Github</a> repository</p>
+          <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{{url_for('main.home_page')}}" role="button">Go back</a>
+          </p>
+        </div>
+    </div>
+{% endblock content %}

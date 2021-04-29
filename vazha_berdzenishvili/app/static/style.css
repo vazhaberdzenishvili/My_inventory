@@ -1,0 +1,122 @@
+body {
+    font-family: sans-serif;
+    background-image: url("images/background_img.jpg");
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+}
+nav{
+    display: flex;
+    padding: 8px;
+    background-color: transparent;
+}
+.navbar-nav{
+    margin: 0 auto;
+}
+.mr-auto{
+    padding-left: 40px;
+    margin-left: 40px;
+}
+.m-auto{
+     padding-left: 140%;
+}
+.login_form{
+    position: absolute;
+    box-shadow: 0 0 10px rgba(0,0,0,1);
+    margin-top: 15%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    padding: 40px;
+    text-align: center;
+}
+.register_form{
+    position: absolute;
+    box-shadow: 0 0 10px rgba(0,0,0,1);
+    margin-top: 20%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    padding: 40px;
+    text-align: center;
+}
+
+.form-control{
+    width: 200px;
+    margin: 15px auto;
+    padding: -20px 10px;
+    border-radius: 10px;
+    border-color: #cdb4db;
+    transition: 0.25s;
+}
+.form-control:focus{
+    width: 100%;
+    height: 40px;
+}
+
+#reg_title{
+    font-family: cursive;
+    text-align: center;
+    margin-top: -20px;
+}
+#login_title{
+    font-family: "cursive";
+    text-align: center;
+    padding-bottom: 30px;
+}
+.registration_redirect {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: -30px;
+
+}
+
+.submit{
+    display: block;
+    border: 2px solid limegreen;
+    text-align: center;
+    margin: 30px auto auto;
+    padding: 5px 13px;
+    border-radius: 10px;
+    width: 90px;
+
+}
+.submit:hover{
+    background: #4f9e3e;
+}
+
+.login_redirect{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: -35px;
+}
+.alert-success{
+    text-align: center;
+    bottom: 80px;
+    float:top;
+    margin: 60px auto;
+    width: 450px;
+    border-radius: 10px;
+    color: white;
+    background-color: #4CAF50;
+    font-family: cursive;
+}
+.page-wrap {
+    min-height: 100vh;
+}
+.modal-header {
+    background-color: gray;
+
+ }
+.modal-body{
+    background-color: silver;
+    border-radius: 10px;
+}
+.modal-footer{
+    background-color: silver;
+}
+.carousel-item.image{
+    height: 400px;
+    }
+.jumbotron{
+    font-family: cursive;
+}
