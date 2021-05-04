@@ -3,7 +3,8 @@
 {% block content %}
 
 <fieldset>
-    <div class="content">
+    {{ flash_alert() }}
+    <div class="container">
             <form method="POST"  class="login_form">
                     <h1 id="login_title"><strong>login</strong></h1>
                     {{ form.hidden_tag() }}
@@ -29,9 +30,39 @@
                 <div  class="registration_redirect">
                     <label>Create an <a href="{{url_for('UserModel.registration')}}"><strong>Account</strong></a></label>
                 </div>
-            </form>
-    </div>
-</fieldset>
-{{ flash_alert() }}
 
+                <button type="button"  class="btn btn-success" id="forgot"
+                data-toggle="modal" data-target="#mymodal">forgot password?</button>
+            </form>
+
+    </div>
+    <div id="mymodal" class="modal fade" role="dialog" data-keyboard="false" data-backdrop="static">
+   <div class="modal-dialog">
+      <div class="modal-content">
+             <div class="modal-header">
+                <h4 class="modal-title">Recovery password</h4>
+             </div>
+             <div class="modal-body">
+                <form action="{{url_for('UserModel.forgot_password')}}" method="POST">
+                  <div class="form-group">
+                  <input type="text" class="form-control" name="username" required="1" placeholder="username">
+               </div>
+                <div class="form-group">
+                  <input type="text" step="0.01" class="form-control" name="password" required="1" placeholder="password">
+               </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="Repassword" required="1" placeholder="Re-enter password">
+               </div>
+                   <div class="text-center">
+                      <button class="btn btn-primary" type="submit" >update</button>
+                   </div>
+                </form>
+             </div>
+             <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
+             </div>
+          </div>
+      </div>
+   </div>
+</fieldset>
 {% endblock content %}
