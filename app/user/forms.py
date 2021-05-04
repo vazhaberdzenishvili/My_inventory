@@ -6,7 +6,7 @@ from wtforms.validators import DataRequired, length, email, equal_to
 class RegistrationForm(FlaskForm):
     firstname = StringField("First name", [DataRequired()])
     lastname = StringField("Last name", [DataRequired()])
-    username = StringField("Username",[DataRequired()])
+    username = StringField("Username",[DataRequired(), length(min=8)])
     password = PasswordField("Password", [DataRequired(), length(min=8)])
     Repassword = PasswordField("Re-enter Password", [equal_to("password", message="Passwords don't match")])
     email = StringField("Email", [DataRequired(), email()])
