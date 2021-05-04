@@ -27,10 +27,10 @@ def Store_add():
     item = StoreModel(name, price, quantity)
     if StoreModel.find_by_name(name) is None:
         item.add_item()
-        flash(f" ნივთი {name} წარმატებით დაემატა ბაზაში")
+        flash(f" ნივთი {name} წარმატებით დაემატა ბაზაში",'success')
         return redirect(url_for('StoreModel.store'))
     else:
-        flash(F"პროდუქტი {name} დასახელებით უკვე არსებობს ")
+        flash(F"პროდუქტი {name} დასახელებით უკვე არსებობს ",'error')
         return redirect(url_for('StoreModel.store'))
 
 
@@ -38,7 +38,7 @@ def Store_add():
 def store_delete(id):
     item = StoreModel.query.get(id)
     item.delete_item()
-    flash("პროდუქტი  წარმატებით წაიშალა ბაზიდან")
+    flash("პროდუქტი  წარმატებით წაიშალა ბაზიდან",'success')
 
     return redirect(url_for('StoreModel.store'))
 
@@ -51,5 +51,5 @@ def store_edit():
         item_data.price = request.form['price']
         item_data.quantity = request.form['quantity']
         db.session.commit()
-        flash(f"პროდუქტი  {item_data.name}  წარმატებით განახლდა ")
+        flash(f"პროდუქტი  {item_data.name}  წარმატებით განახლდა",'success')
         return redirect(url_for('StoreModel.store'))

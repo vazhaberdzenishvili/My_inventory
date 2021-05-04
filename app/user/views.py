@@ -1,7 +1,10 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash
 from flask_login import login_user
+from werkzeug.security import generate_password_hash
+
 from app.user.forms import RegistrationForm, LoginForm
 from app.data.pages_resource import pages
+from app import db
 
 from app.models.user import UserModel
 
@@ -24,10 +27,10 @@ def registration():
             user = UserModel(firstname, lastname, username, password, email)
             if UserModel.find_by_username(username) is None:
                 user.add_user()
-                flash(f"{firstname},თქვენ წარმატებით გაიარეთ რეგისტრაცია")
+                flash(f"{firstname},თქვენ წარმატებით გაიარეთ რეგისტრაცია",'success')
                 return redirect(url_for('UserModel.login'))
             else:
-                flash(f"მომხმარებელი {username} სახელით უკვე დარეგისტრირებულია")
+                flash(f"მომხმარებელი {username} სახელით უკვე დარეგისტრირებულია",'error')
             return redirect(url_for('UserModel.registration'))
     return render_template('register.html', form=form, pages=pages)
 
@@ -43,10 +46,25 @@ def login():
             if user:
                 if user.check_password(password):
                     login_user(user)
-                    flash(f"{username},თქვენ წარმატებით გაიარეთ ავტორიზაცია")
+                    flash(f"{username},თქვენ წარმატებით გაიარეთ ავტორიზაცია",'success')
                     return redirect(url_for('StoreModel.store'))
                 else:
-                    flash(f"პაროლი არასწორია")
+                    flash(f"პაროლი არასწორია",'error')
                     return redirect(url_for('UserModel.login'))
-            flash(f"{username} სახელით მომხმარებელი არ არის რეგისტრირებული")
+            flash(f"{username} სახელით მომხმარებელი არ არის რეგისტრირებული",'error')
     return render_template('login.html', form=form, pages=pages)
+
+
+@user_blueprint.route('/recovery', methods=['GET', 'POST'])
+def forgot_password():
+    if request.method == 'POST':
+        # user_data = UserModel.query.get(request.form.get('username'))
+        username = request.form['username']
+        user = UserModel.query.filter_by(username=username).first()
+        if user:
+            user.password = generate_password_hash(request.form['password'])
+            db.session.commit()
+            flash('პაროლი წარმატებით განახლდა','success')
+        else:
+            flash(f'მომხმარებელი სახელით {username} არ არის რეგისტრირებული','error')
+    return redirect(url_for('UserModel.login'))
