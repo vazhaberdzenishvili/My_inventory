@@ -1,9 +1,9 @@
 user_data = [
     {
-        "firstname": "vazha",
-        "lastname": "berdzenishvili",
+        "firstname": "joe",
+        "lastname": "something",
         "password": "12345678",
-        "email": "berdzenav@mail.ru",
+        "email": "joesmth@mail.ru",
         "active": "1"
 
     },
@@ -12,7 +12,7 @@ user_data = [
         "lastname": "something",
         "password": "123123123",
         "email": "niksmth@mail.ru",
-        "active": "0"
+        "active": "1"
 
     }
 ]

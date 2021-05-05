@@ -28,6 +28,10 @@
                   <a class="btn btn-danger active" id="admin_button" href="{{ url_for('admin.index') }}">Admin</a>
                   <a class="nav-item nav-link" href="{{ url_for('logout') }}">გამოსვლა</a>
               </div>
+            {%else%}
+                <div class="navbar-nav m-auto">
+                      <a class="nav-item nav-link" href="{{ url_for('logout') }}">გამოსვლა</a>
+                </div>
             {% endif %}
         {% else %}
             <div class="navbar-nav m-auto">

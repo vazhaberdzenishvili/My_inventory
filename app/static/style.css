@@ -121,7 +121,6 @@ nav{
  }
 .modal-body{
     background-color: silver;
-    border-radius: 10px;
 }
 .modal-footer{
     background-color: silver;
@@ -147,4 +146,3 @@ nav{
         max-width: 100%;
     }
 }
-.contr

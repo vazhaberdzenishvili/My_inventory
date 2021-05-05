@@ -16,36 +16,28 @@
                 </div>
                 <div class="regfield">
                     {{ form.username(class_="form-control",placeholder='Enter your username') }}
-                </div>
-                <ul>
                     {%for error in form.username.errors %}
-                        <li style="color: red">{{error}}</li>
+                        <span style="color: red">{{error}}</span>
                     {%endfor%}
-                </ul>
+                </div>
                 <div class="regfield">
                     {{ form.password(class_="form-control",placeholder='Enter your password') }}
-                </div>
-                <ul>
                     {%for error in form.password.errors %}
-                       <li style="color:red; font-family: cursive" :>{{error}}</li>
+                       <span style="color:red; font-family: cursive" :>{{error}}</span>
                     {%endfor%}
-                </ul>
+                </div>
                 <div class="regfield">
                     {{ form.Repassword(class_="form-control",placeholder='Re-enter password') }}
+                     {%for error in form.Repassword.errors %}
+                        <span style="color:red; font-family: cursive" :>{{error}}</span>
+                     {%endfor%}
                 </div>
-                <ul>
-                    {%for error in form.Repassword.errors %}
-                        <li style="color:red; font-family: cursive" :>{{error}}</li>
-                    {%endfor%}
-                </ul>
                 <div class="regfield">
                     {{ form.email(class_="form-control",placeholder='Enter your email adress') }}
-                </div>
-                <ul>
                     {%for error in form.email.errors %}
-                        <li style="color:red; font-family: cursive" :>{{error}}</li>
+                        <span style="color:red; font-family: cursive" :>{{error}}</span>
                     {%endfor%}
-                </ul>
+                </div>
                  <div class="field">
                         {{ form.submit(class="submit") }}
                  </div>

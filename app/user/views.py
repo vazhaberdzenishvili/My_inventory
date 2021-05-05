@@ -27,11 +27,10 @@ def registration():
             user = UserModel(firstname, lastname, username, password, email)
             if UserModel.find_by_username(username) is None:
                 user.add_user()
-                flash(f"{firstname},თქვენ წარმატებით გაიარეთ რეგისტრაცია",'success')
+                flash(f"{firstname}, თქვენ წარმატებით გაიარეთ რეგისტრაცია", 'success')
                 return redirect(url_for('UserModel.login'))
             else:
-                flash(f"მომხმარებელი {username} სახელით უკვე დარეგისტრირებულია",'error')
-            return redirect(url_for('UserModel.registration'))
+                flash(f"მომხმარებელი {username} სახელით უკვე დარეგისტრირებულია", 'error')
     return render_template('register.html', form=form, pages=pages)
 
 
@@ -46,12 +45,12 @@ def login():
             if user:
                 if user.check_password(password):
                     login_user(user)
-                    flash(f"{username},თქვენ წარმატებით გაიარეთ ავტორიზაცია",'success')
+                    flash(f"{user.firstname},თქვენ წარმატებით გაიარეთ ავტორიზაცია", 'success')
                     return redirect(url_for('StoreModel.store'))
                 else:
-                    flash(f"პაროლი არასწორია",'error')
+                    flash(f"პაროლი არასწორია", 'error')
                     return redirect(url_for('UserModel.login'))
-            flash(f"{username} სახელით მომხმარებელი არ არის რეგისტრირებული",'error')
+            flash(f"{username} სახელით მომხმარებელი არ არის რეგისტრირებული", 'error')
     return render_template('login.html', form=form, pages=pages)
 
 
@@ -64,7 +63,7 @@ def forgot_password():
         if user:
             user.password = generate_password_hash(request.form['password'])
             db.session.commit()
-            flash('პაროლი წარმატებით განახლდა','success')
+            flash('პაროლი წარმატებით განახლდა', 'success')
         else:
-            flash(f'მომხმარებელი სახელით {username} არ არის რეგისტრირებული','error')
+            flash(f'მომხმარებელი სახელით {username} არ არის რეგისტრირებული', 'error')
     return redirect(url_for('UserModel.login'))
