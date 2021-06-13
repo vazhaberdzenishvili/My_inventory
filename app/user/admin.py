@@ -1,6 +1,6 @@
 from flask_admin import Admin, AdminIndexView
 from flask_admin.contrib.sqla import ModelView
-from app.models.user import UserModel, Role
+from app.models.user import UserModel, Role, OAuth
 from app.models import db
 from flask import redirect, url_for, request, flash
 from flask_user import current_user
@@ -45,5 +45,6 @@ class IndexView(AdminIndexView):
 admin = Admin(name='Panel', template_mode='bootstrap4', index_view=IndexView(name='home'))
 admin.add_view(UserModelView(StoreModel, db.session))
 admin.add_view(AdminModelView(UserModel, db.session, category="User Managements"))
+admin.add_view(AdminModelView(OAuth, db.session, category="Oauth users"))
 admin.add_view(UserModelView(Role, db.session, name="User Roles", category="User Managements"))
 admin.add_link(MenuLink(name="Logout", endpoint='user.logout'))
