@@ -22,8 +22,7 @@ class AdminModelView(ModelView):
     column_exclude_list = ['password', ]
 
     def is_accessible(self):
-        if current_user.is_authenticated:
-            return current_user.has_role("Admin")
+        return current_user.has_roles("Admin")
 
     def inaccessible_callback(self, name, **kwargs):
         flash('please authorize to verify that you have <Admin> status')
@@ -34,8 +33,7 @@ class IndexView(AdminIndexView):
     column_exclude_list = ['password', ]
 
     def is_accessible(self):
-        if current_user.is_authenticated:
-            return current_user.has_role("Admin")
+        return current_user.has_role("Admin")
 
     def inaccessible_callback(self, name, **kwargs):
         flash('please authorize to verify that you have <Admin> status')
