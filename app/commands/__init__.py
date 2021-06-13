@@ -6,4 +6,4 @@ from .db_init import InitDbCommand
 manager = Manager(create_app())
 manager.add_command('database', MigrateCommand)
 manager.add_command('db_init', InitDbCommand)
-manager.add_command('runserver', Server(port=8885))
+manager.add_command('runserver', Server(port=5000))

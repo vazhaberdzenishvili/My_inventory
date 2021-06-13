@@ -1,3 +1,5 @@
+import os
+
 APP_NAME = "MyInventory"
 
 # SQLAlchemy CONFIG
@@ -20,3 +22,11 @@ USER_ENABLE_RETYPE_PASSWORD = True  # Prompt for `retype password` in:
 
 USER_AFTER_LOGIN_ENDPOINT = 'StoreModel.Store'
 USER_AFTER_LOGOUT_ENDPOINT = 'main.home_page'
+
+# oauth configuration
+GITHUB_OAUTH_CLIENT_ID = os.environ.get("GITHUB_OAUTH_CLIENT_ID")
+GITHUB_OAUTH_CLIENT_SECRET = os.environ.get("GITHUB_OAUTH_CLIENT_SECRET")
+GOOGLE_OAUTH_CLIENT_ID = os.environ.get("GOOGLE_OAUTH_CLIENT_ID")
+GOOGLE_OAUTH_CLIENT_SECRET = os.environ.get("GOOGLE_OAUTH_CLIENT_SECRET")
+OAUTHLIB_INSECURE_TRANSPORT = True
+
