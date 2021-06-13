@@ -8,7 +8,7 @@ from flask_dance.consumer.storage.sqla import SQLAlchemyStorage
 from app.models import db
 from flask import redirect, url_for, flash
 from flask_user import current_user
-from app.models.user import OAuth, UserModel
+from app.models.user import OAuth, UserModel,User
 
 blueprint = make_github_blueprint(
     storage=SQLAlchemyStorage(OAuth, db.session, user=current_user)
@@ -61,7 +61,7 @@ def github_logged_in(blueprint, token):
             # create a new local user account and log that account in.
             # This means that one person can make multiple accounts, but it's
             # OK because they can merge those accounts later.
-            user = UserModel(username=github_info["login"])
+            user = User(username=github_info["login"])
             oauth.user = user
             db.session.add_all([user, oauth])
             db.session.commit()
