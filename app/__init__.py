@@ -8,7 +8,6 @@ from app.models import db
 from app.models.user import UserModel
 from datetime import timedelta
 
-
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 migrate = Migrate()
@@ -17,6 +16,7 @@ migrate = Migrate()
 
 def create_app():
     app = Flask(__name__)
+    app.debug = True
     # app.config['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
     app.config['SECRET_KEY'] = "MYSecretKey236jkb56jk3b56bg54hg45y45h45"
     app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///" + os.path.join(basedir, "data.sqlite")
@@ -34,8 +34,9 @@ def create_app():
     from app.user.views import user_blueprint
     from app.store.views import store_blueprint
     from app.main.views import main_blueprint
-    from app.user.Oauth import github_blueprint
     from app.error_pages.handler import error_pages
+    from app.user.Oauth import github_blueprint
+    from app.user.Oauth import google_blueprint
     app.register_blueprint(error_pages)
 
     app.register_blueprint(main_blueprint, url_prefix='/')
@@ -43,6 +44,8 @@ def create_app():
     app.register_blueprint(user_blueprint, url_prefix="/UserModel")
     app.register_blueprint(store_blueprint, url_prefix="/StoreModel")
     app.register_blueprint(github_blueprint, url_prefix="/login")
+    app.register_blueprint(google_blueprint, url_prefix="/login")
+
 
     @app.route('/logout')
     @login_required

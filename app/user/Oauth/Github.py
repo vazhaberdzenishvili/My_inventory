@@ -8,7 +8,7 @@ from flask_dance.consumer.storage.sqla import SQLAlchemyStorage
 from app.models import db
 from flask import redirect, url_for, flash
 from flask_user import current_user
-from app.models.user import OAuth, UserModel,User
+from app.models.user import OAuth, User
 
 blueprint = make_github_blueprint(
     storage=SQLAlchemyStorage(OAuth, db.session, user=current_user)

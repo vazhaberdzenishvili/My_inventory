@@ -39,9 +39,9 @@
                 <button type="button"  class="btn btn-success" id="forgot"
                 data-toggle="modal" data-target="#mymodal">forgot password?</button>
             <div class="social_buttons">
-                 <a href="#" id="google"><i class="fab fa-Google"></i></a>
+                 <a href="{{ url_for('google.login') }}" id="google"><i class="fab fa-Google"></i></a>
                  <a href="#" id="linkedin"><i class="fab fa-LinkedIn"></i></a>
-                 <a href="{{ url_for("github.login") }}" id="github"><i class="fab fa-github"></i></a>
+                 <a href="{{ url_for('github.login') }}" id="github"><i class="fab fa-github"></i></a>
             </div>
             </form>
 
