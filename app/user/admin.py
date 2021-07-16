@@ -57,8 +57,6 @@ class IndexView(AdminIndexView):
             flash('Please authorize to verify that you have <Admin> status', 'error')
             return redirect(url_for('UserModel.login', next=url_for("admin.index")))
 
-    print(current_user)
-
 
 admin = Admin(name='Panel', template_mode='bootstrap4', index_view=IndexView(name='home'))
 admin.add_view(UserModelView(StoreModel, db.session))

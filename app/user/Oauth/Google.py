@@ -93,7 +93,6 @@ def google_logged_in(blueprint, token):
     query = OAuth.query.filter_by(
         provider=blueprint.name, provider_user_id=google_user_id
     )
-
     try:
         oauth = query.one()
     except NoResultFound:
@@ -113,7 +112,6 @@ def google_logged_in(blueprint, token):
             login_user(oauth.user)
             db.session.add(oauth)
             db.session.commit()
-            print('aqvar')
             flash("Successfully signed in with Google.", 'success')
             return redirect(url_for('StoreModel.store'))
         elif not oauth.user:
@@ -143,17 +141,15 @@ def google_logged_in(blueprint, token):
             if current_user != oauth.user:
                 # Account collision! Ask user if they want to merge accounts.
                 url = url_for("auth.merge", username=oauth.user.username)
-                print('aqvar')
                 return redirect(url)
         else:
             # If the user is logged in and the token is unlinked,
             # link the token to the current user
             oauth.user = current_user
-            print('aqvar')
             db.session.add(oauth)
             db.session.commit()
             flash("Successfully linked Google account.", 'success')
-
+            return redirect(url_for('StoreModel.store'))
     # Indicate that the backend shouldn't manage creating the OAuth object
     # in the database, since we've already done so!
     return False

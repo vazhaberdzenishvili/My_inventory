@@ -26,7 +26,7 @@
         <div class="navbar-nav">
         {% if current_user.is_authenticated %}
             {% if current_user.has_role('Admin') %}
-                  <a class="btn btn-danger btn-xs" type="button" id="admin_button" href="{{ url_for('admin.index') }}">Admin</a>
+<!--                  <a class="btn btn-danger btn-xs" type="button" id="admin_button" href="{{ url_for('admin.index') }}">Admin</a>-->
                   <a class="nav-item nav-link" href="{{ url_for('logout') }}">გამოსვლა</a>
             {%else%}
                 <div class="navbar-nav m-auto">

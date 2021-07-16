@@ -53,8 +53,8 @@ def github_logged_in(blueprint, token):
             # If the user is not logged in and the token is linked,
             # log the user into the linked user account
             login_user(oauth.user)
-            flash("Successfully signed in with GitHub.")
-
+            db.session.add(oauth)
+            db.session.commit()
             return redirect(url_for('StoreModel.store'))
         else:
             # If the user is not logged in and the token is unlinked,
@@ -66,8 +66,7 @@ def github_logged_in(blueprint, token):
             db.session.add_all([user, oauth])
             db.session.commit()
             login_user(user)
-            flash("Successfully signed in with GitHub.")
-            print(user)
+            flash("Successfully signed in with GitHub.",'success')
             return redirect(url_for('StoreModel.store'))
 
     else:
@@ -84,7 +83,7 @@ def github_logged_in(blueprint, token):
             oauth.user = current_user
             db.session.add(oauth)
             db.session.commit()
-            flash("Successfully linked GitHub account.")
+            flash("Successfully linked GitHub account.",'success')
             return redirect(url_for('StoreModel.store'))
 
     # Indicate that the backend shouldn't manage creating the OAuth object
