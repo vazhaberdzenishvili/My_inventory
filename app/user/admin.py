@@ -22,6 +22,9 @@ class AdminModelView(ModelView):
     column_exclude_list = ['password', ]
 
     def is_accessible(self):
+        # if current_user.is_authenticated:
+        #     for emails in UserModel.email:
+        #         if current_user in emails:
         return current_user.has_roles("Admin")
 
     def inaccessible_callback(self, name, **kwargs):
@@ -33,6 +36,7 @@ class IndexView(AdminIndexView):
     column_exclude_list = ['password', ]
 
     def is_accessible(self):
+        print(current_user.email)
         return current_user.has_role("Admin")
 
     def inaccessible_callback(self, name, **kwargs):

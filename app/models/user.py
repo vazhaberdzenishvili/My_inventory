@@ -51,7 +51,7 @@ class UserModel(db.Model, UserMixin):
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(256), unique=True, nullable=False)
-    password_hash = db.Column(db.LargeBinary, nullable=True)
+    password_hash = db.Column(db.String, nullable=True)
     
     
 class OAuth(OAuthConsumerMixin, db.Model):

@@ -5,6 +5,7 @@ from app.user.forms import RegistrationForm, LoginForm
 from app.data.pages_resource import pages
 from app import db
 from app.models.user import UserModel
+from flask_user import current_user
 
 
 user_blueprint = Blueprint('UserModel',
@@ -61,6 +62,7 @@ def login():
                 if user.check_password(password):
                     login_user(user)
                     flash(f"{user.firstname},თქვენ წარმატებით გაიარეთ ავტორიზაცია", 'success')
+                    print(current_user.email)
                     return redirect(url_for('StoreModel.store'))
                 else:
                     flash(f"პაროლი არასწორია", 'error')
