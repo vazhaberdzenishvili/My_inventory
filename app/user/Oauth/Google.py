@@ -7,7 +7,6 @@ from sqlalchemy.orm.exc import NoResultFound
 from app.models import db
 from app.models.user import User, OAuth
 
-
 blueprint = make_google_blueprint(
     scope=[
         "openid",
@@ -103,35 +102,39 @@ def google_logged_in(blueprint, token):
             provider=blueprint.name,
             provider_user_id=google_user_id,
             provider_user_login=google_user_login,
-            token=token,
+            token=token
         )
-
-
     # Now, figure out what to do with this token. There are 2x2 options:
     # user login state and token link state.
     if current_user.is_anonymous:
         if oauth.user:
             # If the user is not logged in and the token is linked,
             # log the user into the linked user account
-                login_user(oauth.user)
-                flash("Successfully signed in with Google.", 'success')
-                return redirect(url_for('StoreModel.store'))
-        else:
+            login_user(oauth.user)
+            db.session.add(oauth)
+            db.session.commit()
+            print('aqvar')
+            flash("Successfully signed in with Google.", 'success')
+            return redirect(url_for('StoreModel.store'))
+        elif not oauth.user:
             # If the user is not logged in and the token is unlinked,
             # create a new local user account and log that account in.
             # This means that one person can make multiple accounts, but it's
             # OK because they can merge those accounts later.
             user = User(username=google_info["email"])
-            google_user_login = str(google_info["email"])
-            if OAuth.query.filter_by(provider_user_login=google_user_login) is None:
-                print(user)
-                oauth.user = user
-                db.session.add_all([user, oauth])
-                db.session.commit()
-                login_user(user)
-                flash("Successfully signed in with Google.", 'success')
-            else:
-                login_user(user)
+            # print(user)
+            # google_user_login = str(google_info["email"])
+            # print(google_user_login)
+            # if OAuth.query.filter_by(provider_user_login=google_user_login) is None:
+
+            oauth.user = user
+            db.session.add_all([user, oauth])
+            db.session.commit()
+            login_user(user)
+            print(user)
+            flash("Successfully signed in with Google.", 'success')
+            # else:
+            #     login_user(user)
             return redirect(url_for('StoreModel.store'))
     else:
         if oauth.user:
