@@ -6,7 +6,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_user import UserMixin
 
 
-class UserModel(db.Model, UserMixin):
+class UserModel(UserMixin, db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     firstname = db.Column(db.String(50), server_default='')
@@ -46,21 +46,16 @@ class UserModel(db.Model, UserMixin):
     def delete_user(self):
         db.session.delete(self)
         db.session.commit()
-        
 
-class User(UserMixin, db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(256), unique=True, nullable=False)
-    password_hash = db.Column(db.String, nullable=True)
-    
-    
+
 class OAuth(OAuthConsumerMixin, db.Model):
     __table_args__ = (db.UniqueConstraint("provider", "provider_user_id"),)
     provider_user_id = db.Column(db.String(256), nullable=False)
+    provider_user_name = db.Column(db.String(256), nullable=False)
     provider_user_login = db.Column(db.String(256), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey(User.id), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey(UserModel.id), nullable=False)
     user = db.relationship(
-        User,
+        UserModel,
         # This `backref` thing sets up an `oauth` property on the User model,
         # which is a dictionary of OAuth models associated with that user,
         # where the dictionary key is the OAuth provider name.
@@ -70,10 +65,6 @@ class OAuth(OAuthConsumerMixin, db.Model):
             cascade="all, delete-orphan",
         ),
     )
-
-    # def __init__(self, provider_id, provider_username):
-    #     self.provider_id = provider_id
-    #     self.provider_username = provider_username
 
 
 class Role(db.Model):

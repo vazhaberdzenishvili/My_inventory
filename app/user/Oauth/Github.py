@@ -1,14 +1,14 @@
 from flask_dance.consumer import oauth_authorized, oauth_error
 from flask_dance.consumer.storage.sqla import SQLAlchemyStorage
 from flask_dance.contrib.github import make_github_blueprint, github
-from flask_login import login_user
 from sqlalchemy.exc import NoResultFound
 from flask_dance.consumer.storage.sqla import SQLAlchemyStorage
 
 from app.models import db
 from flask import redirect, url_for, flash
-from flask_user import current_user
-from app.models.user import OAuth, User
+from flask_login import current_user
+from flask_login import login_user
+from app.models.user import OAuth, UserModel
 
 blueprint = make_github_blueprint(
     storage=SQLAlchemyStorage(OAuth, db.session, user=current_user)
@@ -23,13 +23,12 @@ def github_logged_in(blueprint, token):
 
     resp = blueprint.session.get("/user")
     if not resp.ok:
-        msg = f"Failed to fetch user info from GitHub."
-        flash(msg,'error')
+        flash("Failed to fetch user info from Google.", "error")
         return redirect(url_for('UserModel.login'))
 
     github_info = resp.json()
     github_user_id = str(github_info["id"])
-
+    print(github_info)
     # Find this OAuth token in the database, or create it
     query = OAuth.query.filter_by(
         provider=blueprint.name, provider_user_id=github_user_id
@@ -38,9 +37,11 @@ def github_logged_in(blueprint, token):
         oauth = query.one()
     except NoResultFound:
         github_user_login = str(github_info["login"])
+        github_user_name = str(github_info['login'])
         oauth = OAuth(
             provider=blueprint.name,
             provider_user_id=github_user_id,
+            provider_user_name=github_user_name,
             provider_user_login=github_user_login,
             token=token,
         )
@@ -53,22 +54,25 @@ def github_logged_in(blueprint, token):
             # If the user is not logged in and the token is linked,
             # log the user into the linked user account
             login_user(oauth.user)
-            db.session.add(oauth)
-            db.session.commit()
+            flash("Successfully signed in with Github.", 'success')
             return redirect(url_for('StoreModel.store'))
         else:
             # If the user is not logged in and the token is unlinked,
             # create a new local user account and log that account in.
             # This means that one person can make multiple accounts, but it's
             # OK because they can merge those accounts later.
-            user = User(username=github_info["login"])
+            user = UserModel(firstname=github_info["login"],
+                             lastname=github_info["login"],
+                             username=github_info["login"],
+                             email=github_info["login"],
+                             password=token["access_token"],
+                             )
             oauth.user = user
             db.session.add_all([user, oauth])
             db.session.commit()
             login_user(user)
-            flash("Successfully signed in with GitHub.",'success')
+            flash("Successfully signed in with Github.", 'success')
             return redirect(url_for('StoreModel.store'))
-
     else:
         if oauth.user:
             # If the user is logged in and the token is linked, check if these
@@ -83,12 +87,11 @@ def github_logged_in(blueprint, token):
             oauth.user = current_user
             db.session.add(oauth)
             db.session.commit()
-            flash("Successfully linked GitHub account.",'success')
+            flash("Successfully linked Github account.", 'success')
             return redirect(url_for('StoreModel.store'))
 
     # Indicate that the backend shouldn't manage creating the OAuth object
     # in the database, since we've already done so!
-
     return False
 
 
