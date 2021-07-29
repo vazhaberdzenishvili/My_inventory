@@ -14,43 +14,40 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar">
-            <ul>
-                <li class="guest-view">
-                    <a href="{{url_for('main.home_page')}}">MyInventory</a>
-                </li>
-                <li class="guest-view">
-                    <a href="{{url_for('main.about_us')}}">About</a>
-                </li>
+    <nav class="navbar navbar-dark bg-dark text-white navbar-expand-md">
+      <a class="navbar-brand" href="{{ url_for('main.home_page') }}">MyInventory</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <!--    basic navigation -->
+      <div class="navbar-nav mr-auto">
+        {{nav_bar_generator(pages)}}
+      </div>
+    <!--    user navigation -->
+        <div class="navbar-nav">
+        {% if current_user.is_authenticated %}
+            {% if current_user.has_role('Admin') %}
+<!--                  <a class="btn btn-danger btn-xs" type="button" id="admin_button" href="{{ url_for('admin.index') }}">Admin</a>-->
+                  <a class="nav-item nav-link" href="{{ url_for('logout') }}">გამოსვლა</a>
+            {%else%}
+                <div class="navbar-nav m-auto">
+                      <a class="nav-item nav-link" href="{{ url_for('logout') }}">გამოსვლა</a>
+                </div>
+            {% endif %}
+        {% else %}
+                <a class="nav-item nav-link" href="{{ url_for('UserModel.login') }}">შესვლა</a>
+                <a class="nav-item nav-link" href="{{ url_for('UserModel.registration') }}">რეგისტრაცია</a>
 
-                {% if current_user.is_authenticated %}
-                    {% if current_user.has_role('Admin') %}
-                        <li class="user-view">
-                            <a href="{{url_for('admin.index')}}">Admin</a>
-                        </li>
-                        <li class="user-view">
-                            <a href="{{url_for('logout')}}">Logout</a>
-                        </li>
-                    {%else%}
-                        <li class="user-view">
-                            <a href="{{url_for('UserModel.logout')}}">Logout</a>
-                        </li>
-                    {% endif %}
-                {% else %}
-                <li class="user-view">
-                    <a href="{{url_for('UserModel.login')}}">Login</a>
-                </li>
-                <li class="user-view">
-                    <a href="{{url_for('UserModel.registration')}}">Register</a>
-                </li>
-                {% endif %}
-            </ul>
-        </nav>
-    </header>
-
+        {% endif %}
+        </div>
+      </div>
+    </nav>
+<br>
+<div class="container">
     {% block content %}
     {% endblock %}
+</div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
