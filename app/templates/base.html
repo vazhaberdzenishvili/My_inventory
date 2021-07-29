@@ -28,16 +28,16 @@
         <div class="navbar-nav">
         {% if current_user.is_authenticated %}
             {% if current_user.has_role('Admin') %}
-<!--                  <a class="btn btn-danger btn-xs" type="button" id="admin_button" href="{{ url_for('admin.index') }}">Admin</a>-->
-                  <a class="nav-item nav-link" href="{{ url_for('logout') }}">გამოსვლა</a>
+                  <a class="btn btn-danger btn-xs" type="button" id="admin_button" href="{{ url_for('admin.index') }}">Admin</a>
+                  <a class="nav-item nav-link" href="{{ url_for('logout') }}">{{ _('Logout')}}</a>
             {%else%}
                 <div class="navbar-nav m-auto">
-                      <a class="nav-item nav-link" href="{{ url_for('logout') }}">გამოსვლა</a>
+                      <a class="nav-item nav-link" href="{{ url_for('logout') }}">{{ _('Logout')}}</a>
                 </div>
             {% endif %}
         {% else %}
-                <a class="nav-item nav-link" href="{{ url_for('UserModel.login') }}">შესვლა</a>
-                <a class="nav-item nav-link" href="{{ url_for('UserModel.registration') }}">რეგისტრაცია</a>
+                <a class="nav-item nav-link" href="{{ url_for('UserModel.login') }}">{{ _('Login')}}</a>
+                <a class="nav-item nav-link" href="{{ url_for('UserModel.registration') }}">{{ _('Register')}}</a>
 
         {% endif %}
         </div>

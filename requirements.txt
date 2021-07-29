@@ -10,7 +10,7 @@ click==7.1.2
 cryptography==3.4.7
 dnspython==2.1.0
 email-validator==1.1.2
-Flask==1.1.2
+Flask~=2.0.1
 Flask-Admin==1.5.8
 Flask-Dance==5.0.0
 Flask-Login==0.5.0
@@ -39,6 +39,6 @@ six==1.15.0
 SQLAlchemy==1.4.11
 urllib3==1.26.5
 URLObject==2.4.3
-Werkzeug==1.0.1
+Werkzeug~=2.0.1
 WTForms==2.3.3
 uwsgi

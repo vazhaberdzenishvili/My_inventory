@@ -6,6 +6,7 @@ from flask import redirect, url_for, flash
 from flask_user import current_user
 from app.models.store import StoreModel
 from flask_admin.menu import MenuLink
+from flask_babel import gettext
 
 
 class UserModelView(ModelView):
@@ -25,11 +26,11 @@ class AdminModelView(ModelView):
         if current_user.is_authenticated:
             return current_user.has_role("Admin")
 
-        flash("You do not have the role of admin", "error")
+        flash(gettext("You do not have the role of admin"), "error")
         return redirect(url_for('main.home_page'))
 
     def inaccessible_callback(self, name, **kwargs):
-        flash("You do not have the role of admin", "error")
+        flash(gettext("You do not have the role of admin"), "error")
         return redirect(url_for('UserModel.login'))
 
 
@@ -40,11 +41,11 @@ class IndexView(AdminIndexView):
         if current_user.is_authenticated:
             return current_user.has_roles("Admin")
         else:
-            flash("You do not have the role of admin", "error")
+            flash(gettext("You do not have the role of admin"), "error")
             return redirect(url_for('UserModel.login'))
 
     def inaccessible_callback(self, name, **kwargs):
-        flash('Please authorize to verify that you have <Admin> status', 'error')
+        flash(gettext('Please authorize to verify that you have <Admin> status'), 'error')
         return redirect(url_for('UserModel.login'))
 
 

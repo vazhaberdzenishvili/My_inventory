@@ -7,11 +7,12 @@ from flask_user import SQLAlchemyAdapter, UserManager, login_required
 from app.models import db
 from app.models.user import UserModel
 from datetime import timedelta
+from flask_babel import Babel
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 migrate = Migrate()
-
+babel = Babel()
 
 # oauth = OAuth()
 
@@ -32,6 +33,7 @@ def create_app():
     UserManager(db_adapter, app)  # Init Flask-User and bind to app
     # OAuth init
     # oauth.init_app(app)
+    babel.init_app(app)
 
     from app.user.views import user_blueprint
     from app.store.views import store_blueprint
