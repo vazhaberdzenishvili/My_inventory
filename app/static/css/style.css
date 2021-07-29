@@ -1,26 +1,19 @@
 body {
     font-family: sans-serif;
-    background-image: url("images/background_img.jpg");
+    background-image: url("../images/background_img.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
-nav{
-    width: 100%;
-    position: fixed;
-    padding: 10px;
-    background-color: transparent;
-}
-.container{
-    align-items: center;
-}
-.mr-auto{
+header{
     display: flex;
-    padding-left: 3%;
+    justify-content: space-between;
 }
-.m-auto {
-    display: flex;
+ul{
+
 }
+
+
 .login_form{
     position: absolute;
     display: flex;
@@ -235,13 +228,13 @@ nav{
     transform: translate(0, -10px);
 }
 .username_icon{
-    display: inline-block;
+    display: flex;
     position: absolute;
     margin: 11px;
     opacity: 0.6;
 }
 .password_icon{
-    display: inline-block;
+    display: flex;
     position: absolute;
     margin: 11px;
     opacity: 0.6;

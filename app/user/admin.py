@@ -2,7 +2,7 @@ from flask_admin import Admin, AdminIndexView
 from flask_admin.contrib.sqla import ModelView
 from app.models.user import UserModel, Role, OAuth
 from app.models import db
-from flask import redirect, url_for, request, flash
+from flask import redirect, url_for, flash
 from flask_user import current_user
 from app.models.store import StoreModel
 from flask_admin.menu import MenuLink
@@ -22,40 +22,30 @@ class AdminModelView(ModelView):
     column_exclude_list = ['password', ]
 
     def is_accessible(self):
-        if current_user is not None:
-            if current_user.is_authenticated:
-                return current_user.has_role("Admin")
-        else:
-            flash("You do not have the role of admin", "error")
-            return redirect(url_for('main.home_page'))
+        if current_user.is_authenticated:
+            return current_user.has_role("Admin")
+
+        flash("You do not have the role of admin", "error")
+        return redirect(url_for('main.home_page'))
 
     def inaccessible_callback(self, name, **kwargs):
-        if current_user is None:
-            flash("You do not have the role of admin", "error")
-            return redirect(url_for('main.home_page'))
-        else:
-            flash('please authorize to verify that you have <Admin> status', 'error')
-            return redirect(url_for('UserModel.login', next=url_for("admin.index")))
+        flash("You do not have the role of admin", "error")
+        return redirect(url_for('UserModel.login'))
 
 
 class IndexView(AdminIndexView):
     column_exclude_list = ['password', ]
 
     def is_accessible(self):
-        # if current_user is not None:
         if current_user.is_authenticated:
             return current_user.has_roles("Admin")
         else:
             flash("You do not have the role of admin", "error")
-            return redirect(url_for('main.home_page'))
+            return redirect(url_for('UserModel.login'))
 
     def inaccessible_callback(self, name, **kwargs):
-        if current_user is None:
-            flash("You do not have the role of admin", "error")
-            return redirect(url_for('main.home_page'))
-        else:
-            flash('Please authorize to verify that you have <Admin> status', 'error')
-            return redirect(url_for('UserModel.login', next=url_for("admin.index")))
+        flash('Please authorize to verify that you have <Admin> status', 'error')
+        return redirect(url_for('UserModel.login'))
 
 
 admin = Admin(name='Panel', template_mode='bootstrap4', index_view=IndexView(name='home'))
