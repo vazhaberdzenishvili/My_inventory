@@ -5,12 +5,17 @@ body {
     background-position: center;
     background-repeat: no-repeat;
 }
-header{
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ul{
     display: flex;
     justify-content: space-between;
 }
-ul{
-
+li{
+    display: flex;
 }
 
 
