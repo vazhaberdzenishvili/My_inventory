@@ -32,6 +32,7 @@
             {% if current_user.has_role('Admin') %}
                   <a class="btn btn-danger btn-xs" type="button" id="admin_button" href="{{ url_for('admin.index') }}">Admin</a>
                   <a class="nav-item nav-link" href="{{ url_for('logout') }}">{{ _('Logout')}}</a>
+                  <a href="/language" class="nav-item nav-link"><i class="fas fa-globe" id="globe"></i></a>
             {%else%}
                 <div class="navbar-nav m-auto">
                       <a class="nav-item nav-link" href="{{ url_for('logout') }}">{{ _('Logout')}}</a>
@@ -40,7 +41,7 @@
         {% else %}
             <a class="nav-item nav-link" href="{{ url_for('UserModel.login') }}">{{ _('Login')}}</a>
             <a class="nav-item nav-link" href="{{ url_for('UserModel.registration') }}">{{ _('Register')}}</a>
-            <a href="/language" class="lang nino__mtavruli action">ENG/ქარ</a>
+            <a href="/language" class="nav-item nav-link"><i class="fas fa-globe" id="globe"></i></a>
         {% endif %}
 
         </div>

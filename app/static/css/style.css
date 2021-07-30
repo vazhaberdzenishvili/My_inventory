@@ -12,6 +12,7 @@ nav{
     background-color: transparent;
 }
 .container{
+    width: 1000px;
     align-items: center;
 }
 .mr-auto{
@@ -20,8 +21,19 @@ nav{
 }
 .m-auto {
     display: flex;
+
 }
 
+.search_bar{
+    display: flex;
+    margin: 10px auto;
+    justify-content: space-between;
+    align-items: end;
+}
+#search_input{
+    right: 60px;
+    border-radius: 6px;
+}
 
 .login_form{
     position: absolute;
@@ -278,6 +290,20 @@ select option:hover{
 .geo_logo{
     width: 30px;
 }
-.eng_logo{
+.eng_logo {
     width: 30px;
+}
+.lead{
+    font-family: cursive;
+    margin-top: 40px;
+}
+.display-4{
+    font-family: sans-serif;
+}
+.jumbotron{
+    font-family: cursive;
+    border-radius: 6px;
+}
+#globe:hover{
+    color: #4c9bff;
 }

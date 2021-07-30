@@ -2,13 +2,18 @@
 {% from 'macros.html' import flash_alert %}
 {% block content %}
 
-<div class="container">
+<div class="store-container">
     {{ flash_alert() }}
     <div class="col md-12" >
-        <button type="button" id="product_add"  class="btn btn-success float-right"
-                data-toggle="modal" data-target="#mymodal">{{ _('Add the product') }}</button>
-        {{ pagination.info }}
-        {{ pagination.links }}
+        <div class = 'search_bar'>
+            <form class="form-inline md-form mr-auto mb-4" action = "{{ url_for('StoreModel.store') }}" method="POST">
+              <input class="form-control mr-sm-2"  id='search_input' type="text" name= 'name' placeholder="Search" aria-label="Search">
+              <button class="btn btn-success float-right" type="submit">Search</button>
+            </form>
+        </div>
+            <button type="button" id="product_add"  class="btn btn-success float-right"
+                    data-toggle="modal" data-target="#mymodal">{{ _('Add the product') }}
+            </button>
         <table id="tableX" class="table table-hover">
       <tr>
         <th>ID</th>
@@ -17,7 +22,7 @@
         <th>{{ _('Quantity') }}</th>
         <th>{{ _('Action') }}</th>
       </tr>
-{% for row in data.items %}
+    {% for row in items.items %}
           <tr>
             <td>{{row.id}}</td>
             <td>{{row.name}}</td>
@@ -28,7 +33,7 @@
                 <a href="delete/{{row.id}}" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure to delete the item?')">{{ _('Delete') }}</a>
             </td>
           </tr>
-          {{ pagination.links }}
+
 
 
     <div id="modaledit{{row.id}}" class="modal fade" role="dialog">
@@ -93,6 +98,40 @@
       </div>
    </div>
         </table>
+        <div class="text-right">
+                <a href="{{ url_for('StoreModel.store', page=items.prev_num) }}"
+                   class="btn btn-outline-dark
+                   {% if items.page == 1 %}disabled{% endif %}">
+                    &laquo;
+                </a>
+            <!-- Loop through the number of pages to display a link for each-->
+                {% for page_num in items.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+            {% if page_num %}
+            <!-- Check for the active page and set the link to "Active"-->
+                        {% if items.page == page_num %}
+                        <a href="{{ url_for('StoreModel.store', page=page_num) }}"
+                           class="btn btn-dark">
+                            {{ page_num }}
+                        </a>
+                        {% else %}
+                        <a href="{{ url_for('StoreModel.store', page=page_num) }}"
+                           class="btn btn-outline-dark">
+                            {{ page_num }}
+                        </a>
+                        {% endif %}
+                    {% else %}
+                        ...
+                    {% endif %}
+                {% endfor %}
+                <a href="{{ url_for('StoreModel.store', page=items.next_num) }}"
+                   class="btn btn-outline-dark
+                   {% if items.page == items.pages %}disabled{% endif %}">
+                    &raquo;
+                </a>
+            </div>
+            <p class="text-right mt-3">
+               Showing page {{ items.page }} of {{ items.pages }}
+            </p>
     </div>
 </div>
 
