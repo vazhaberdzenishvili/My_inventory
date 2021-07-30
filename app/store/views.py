@@ -14,7 +14,7 @@ store_blueprint = Blueprint('StoreModel',
 
 @store_blueprint.route('/store', methods=['GET', 'POST'])
 def store():
-    ROWS_PER_PAGE = 7
+    ROWS_PER_PAGE = 5
     page = request.args.get('page', 1, type=int)
     if current_user.is_authenticated:
         if request.method == 'POST':

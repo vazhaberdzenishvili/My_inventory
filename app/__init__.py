@@ -16,14 +16,11 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 migrate = Migrate()
 babel = Babel()
 
-# oauth = OAuth()
 
 
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
-    # app.debug = True
-    # app.config['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
     app.config['SECRET_KEY'] = "MYSecretKey236jkb56jk3b56bg54hg45y45h45"
     app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///" + os.path.join(basedir, "data.sqlite")
     os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = '1'

@@ -5,12 +5,12 @@
 <div class="store-container">
     {{ flash_alert() }}
     <div class="col md-12" >
-        <div class = 'search_bar'>
+
             <form class="form-inline md-form mr-auto mb-4" action = "{{ url_for('StoreModel.store') }}" method="POST">
-              <input class="form-control mr-sm-2"  id='search_input' type="text" name= 'name' placeholder="Search" aria-label="Search">
-              <button class="btn btn-success float-right" type="submit">Search</button>
+              <input class="form-control mr-sm-2"  id='search_input' type="text" name= 'name' placeholder="Enter the product name" aria-label="Search">
+              <button class="btn btn-success float-right" id="search-btn" type="submit">Search</button>
             </form>
-        </div>
+
             <button type="button" id="product_add"  class="btn btn-success float-right"
                     data-toggle="modal" data-target="#mymodal">{{ _('Add the product') }}
             </button>

@@ -12,6 +12,7 @@ nav{
     background-color: transparent;
 }
 .container{
+    top: -10px;
     width: 1000px;
     align-items: center;
 }
@@ -31,10 +32,12 @@ nav{
     align-items: end;
 }
 #search_input{
-    right: 60px;
+    transform: translate(14%, 163%);
     border-radius: 6px;
 }
-
+#search-btn{
+    transform: translate(35%, 165%);
+}
 .login_form{
     position: absolute;
     display: flex;
@@ -96,12 +99,14 @@ nav{
     border-color: #cdb3db;
 }
 #reg_title{
+    font-size: 30px;
     position: relative;
     font-family: cursive;
     text-align: center;
     margin-bottom: 5%;
 }
 #login_title{
+    font-size: 30px;
     position: relative;
     font-family: cursive;
     text-align: center;
@@ -147,10 +152,10 @@ nav{
 }
 .alert-success{
     position: absolute;
-    display: block;
+    z-index: 10;
+    display: flex;
     text-align: center;
-    align-items: center;
-    left: 30%;
+    transform: translate(48%, -143%);
     width: 450px;
     border-radius: 10px;
     color: white;
@@ -163,7 +168,7 @@ nav{
     justify-content: center;
     text-align: center;
     top: 5%;
-    left: 40%;
+    transform: translate(48%, -56%);
     width: 450px;
     border-radius: 10px;
     color: white;
@@ -304,6 +309,9 @@ select option:hover{
     font-family: cursive;
     border-radius: 6px;
 }
-#globe:hover{
+.fa-globe:hover{
     color: #4c9bff;
+}
+.table {
+    margin-left: 3rem;
 }
