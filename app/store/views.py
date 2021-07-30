@@ -14,19 +14,22 @@ store_blueprint = Blueprint('StoreModel',
 
 @store_blueprint.route('/store', methods=['GET', 'POST'])
 def store():
+    ROWS_PER_PAGE = 7
+    page = request.args.get('page', 1, type=int)
     if current_user.is_authenticated:
-        search = False
-        q = request.args.get('q')
-        if q:
-            search = True
+        if request.method == 'POST':
+            item_name = request.form['name']
+            if item_name:
+                data = StoreModel.query.filter_by(name=item_name)
+                items = data.paginate(page=page, per_page=ROWS_PER_PAGE)
+                return render_template('store.html', items=items)
+            else:
+                items = StoreModel.query.paginate(page=page, per_page=ROWS_PER_PAGE)
+                return render_template('store.html', items=items)
+        items = StoreModel.query.paginate(page=page, per_page=ROWS_PER_PAGE)
+        return render_template('store.html', items=items)
 
-        page = request.args.get(get_page_parameter(), type=int, default=1)
-
-        items = StoreModel.query.all()
-        pagination = Pagination(page=page, total=items.count(), search=search, record_name='StoreModel')
-        return render_template('store.html', items=items, pagination= pagination)
-
-    flash("გთხოვთ გაიაროთ ავტორიზაცია")
+    flash("გთხოვთ გაიაროთ ავტორიზაცია.")
     return redirect(url_for('UserModel.login'))
 
 
@@ -38,10 +41,10 @@ def Store_add():
     item = StoreModel(name, price, quantity)
     if StoreModel.find_by_name(name) is None:
         item.add_item()
-        flash(f" ნივთი {name} წარმატებით დაემატა ბაზაში",'success')
+        flash(f" ნივთი {name} წარმატებით დაემატა ბაზაში", 'success')
         return redirect(url_for('StoreModel.store'))
     else:
-        flash(F"პროდუქტი {name} დასახელებით უკვე არსებობს ",'error')
+        flash(F"პროდუქტი {name} დასახელებით უკვე არსებობს ", 'error')
         return redirect(url_for('StoreModel.store'))
 
 
@@ -49,7 +52,7 @@ def Store_add():
 def store_delete(id):
     item = StoreModel.query.get(id)
     item.delete_item()
-    flash("პროდუქტი  წარმატებით წაიშალა ბაზიდან",'success')
+    flash("პროდუქტი  წარმატებით წაიშალა ბაზიდან", 'success')
 
     return redirect(url_for('StoreModel.store'))
 
@@ -62,5 +65,5 @@ def store_edit():
         item_data.price = request.form['price']
         item_data.quantity = request.form['quantity']
         db.session.commit()
-        flash(f"პროდუქტი  {item_data.name}  წარმატებით განახლდა",'success')
+        flash(f"პროდუქტი  {item_data.name}  წარმატებით განახლდა", 'success')
         return redirect(url_for('StoreModel.store'))
