@@ -1,4 +1,6 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash
+from flask_paginate import get_page_parameter, Pagination
+
 from app import db
 from app.models.store import StoreModel
 from app.data.pages_resource import pages
@@ -13,8 +15,17 @@ store_blueprint = Blueprint('StoreModel',
 @store_blueprint.route('/store', methods=['GET', 'POST'])
 def store():
     if current_user.is_authenticated:
-        data = StoreModel.query.all()
-        return render_template('store.html', pages=pages, items=data)
+        search = False
+        q = request.args.get('q')
+        if q:
+            search = True
+
+        page = request.args.get(get_page_parameter(), type=int, default=1)
+
+        items = StoreModel.query.all()
+        pagination = Pagination(page=page, total=items.count(), search=search, record_name='StoreModel')
+        return render_template('store.html', items=items, pagination= pagination)
+
     flash("გთხოვთ გაიაროთ ავტორიზაცია")
     return redirect(url_for('UserModel.login'))
 

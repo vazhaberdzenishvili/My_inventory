@@ -2,6 +2,8 @@ from flask import Flask, flash, redirect, url_for
 from flask_migrate import Migrate
 import os
 from flask_login import logout_user
+
+from app.settings import Config
 from app.user.admin import admin
 from flask_user import SQLAlchemyAdapter, UserManager, login_required
 from app.models import db
@@ -19,6 +21,7 @@ babel = Babel()
 
 def create_app():
     app = Flask(__name__)
+    app.config.from_object(Config)
     # app.debug = True
     # app.config['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
     app.config['SECRET_KEY'] = "MYSecretKey236jkb56jk3b56bg54hg45y45h45"

@@ -1,6 +1,6 @@
 body {
     font-family: sans-serif;
-    background-image: url("../images/background_img.jpg");
+    background-image: url("../assets/background_img.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -267,4 +267,17 @@ nav{
     margin: 13px;
     right: 45px;
     opacity: 0.6;
+}
+.language_selector{
+    /*background-image: url("../assets/eng.png");*/
+    padding: 10px;
+}
+select option:hover{
+    /*display: block;*/
+}
+.geo_logo{
+    width: 30px;
+}
+.eng_logo{
+    width: 30px;
 }

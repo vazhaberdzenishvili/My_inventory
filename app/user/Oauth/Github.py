@@ -1,6 +1,5 @@
 from flask_dance.consumer import oauth_authorized, oauth_error
-from flask_dance.consumer.storage.sqla import SQLAlchemyStorage
-from flask_dance.contrib.github import make_github_blueprint, github
+from flask_dance.contrib.github import make_github_blueprint
 from sqlalchemy.exc import NoResultFound
 from flask_dance.consumer.storage.sqla import SQLAlchemyStorage
 

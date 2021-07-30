@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-07-29 17:39+0400\n"
+"POT-Creation-Date: 2021-07-29 23:49+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,100 +17,198 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
+#: app/store/templates/store/store.html:9
+msgid "Add the product"
+msgstr ""
+
+#: app/store/templates/store/store.html:13
+msgid "Name"
+msgstr ""
+
+#: app/store/templates/store/store.html:14
+msgid "Price"
+msgstr ""
+
+#: app/store/templates/store/store.html:15
+msgid "Quantity"
+msgstr ""
+
+#: app/store/templates/store/store.html:16
+msgid "Action"
+msgstr ""
+
+#: app/store/templates/store/store.html:22
+msgid "Gel"
+msgstr ""
+
+#: app/store/templates/store/store.html:23
+msgid "pieces"
+msgstr ""
+
+#: app/store/templates/store/store.html:25
+msgid "Edit"
+msgstr ""
+
+#: app/store/templates/store/store.html:26
+msgid "Delete"
+msgstr ""
+
+#: app/store/templates/store/store.html:33
+msgid "Update the Product"
+msgstr ""
+
+#: app/store/templates/store/store.html:38
+msgid "Name:"
+msgstr ""
+
+#: app/store/templates/store/store.html:43
+msgid "Price:"
+msgstr ""
+
+#: app/store/templates/store/store.html:47
+msgid "Quantity:"
+msgstr ""
+
+#: app/store/templates/store/store.html:51
+msgid "Update"
+msgstr ""
+
+#: app/store/templates/store/store.html:56
+#: app/store/templates/store/store.html:85
+#: app/user/templates/user/login.html:74
+msgid "Close"
+msgstr ""
+
+#: app/store/templates/store/store.html:66
+msgid "Add a product"
+msgstr ""
+
+#: app/store/templates/store/store.html:80
+msgid "Add"
+msgstr ""
+
 #: app/templates/about.html:6 app/templates/home.html:6
 msgid "This is a site for online inventory management"
-msgstr "საიტი წარმოადგენს პროდუქციის ონლაინ ინვენტარიზაციას"
+msgstr ""
 
 #: app/templates/about.html:8
 msgid "the source of the site you can find om my"
-msgstr "საიტის შექმნისას გამოყენებული მასალა შეგიძლიათ, იხილოთ ჩემს "
+msgstr ""
 
 #: app/templates/about.html:8
 msgid "repository"
-msgstr "რეპოზიტორში"
+msgstr ""
 
 #: app/templates/about.html:10
 msgid "Go back"
-msgstr "უკან დაბრუნება"
+msgstr ""
 
 #: app/templates/base.html:32 app/templates/base.html:35
 msgid "Logout"
-msgstr "გამოსვლა"
+msgstr ""
 
 #: app/templates/base.html:39 app/templates/home.html:10
 #: app/user/templates/user/register.html:45
 msgid "Login"
-msgstr "ავტორიზაცია"
+msgstr ""
 
 #: app/templates/base.html:40
 msgid "Register"
-msgstr "რეგისტრაცია"
+msgstr ""
 
 #: app/templates/home.html:5
 msgid "Welcome to the site!"
-msgstr "კეთილი იყოს თქვენი მობრძანება"
+msgstr ""
 
 #: app/templates/home.html:8
 msgid "To use the service, please login"
-msgstr "რათა ისარგებლოთ სერვისით, გთხოვთ გაიაროთ ავტორიზაცია"
+msgstr ""
 
 #: app/templates/errors/403.html:4
 msgid "Access Forbidden!"
-msgstr "გვერდზე წვდომა არ არის ნებადართული"
+msgstr ""
+
+#: app/templates/errors/404.html:8
+msgid "The page you are looking for was not found"
+msgstr ""
 
 #: app/user/admin.py:29 app/user/admin.py:33 app/user/admin.py:44
 msgid "You do not have the role of admin"
-msgstr "თქვენ არ გაქვთ ადმინის სტატუსი"
+msgstr ""
 
 #: app/user/admin.py:48
 msgid "Please authorize to verify that you have <Admin> status"
-msgstr "გთხოვთ გაიაროთ ავტორიზცია, რათა დავრწმუნდეთ, რომ გაქვთ ადმინის სტატუსი"
+msgstr ""
 
 #: app/user/forms.py:9
 msgid "First name"
-msgstr "სახელი"
+msgstr ""
 
 #: app/user/forms.py:10
 msgid "Last name"
-msgstr "გვარი"
+msgstr ""
 
 #: app/user/forms.py:11 app/user/forms.py:19
 msgid "Username"
-msgstr "Username"
+msgstr ""
 
 #: app/user/forms.py:12 app/user/forms.py:20
 msgid "Password"
-msgstr "პაროლი"
+msgstr ""
 
 #: app/user/forms.py:13
 msgid "Re-enter Password"
-msgstr "გაიმეორეთ პაროლი"
+msgstr ""
 
 #: app/user/forms.py:14
 msgid "Email"
-msgstr "მეილი"
+msgstr ""
 
 #: app/user/forms.py:15 app/user/forms.py:21
 msgid "submit"
-msgstr "submit"
+msgstr ""
 
 #: app/user/views.py:48
 msgid " you have successfully registered"
-msgstr "თქვენ წარმატებით გაიარეთ რეგისტრაცია"
+msgstr ""
 
 #: app/user/views.py:52
 msgid "password is incorrect"
-msgstr "პაროლი არასწორია"
+msgstr ""
 
 #: app/user/views.py:67
 msgid "Password has successfully updated"
-msgstr "პაროლი წარმატებით განახლდა"
+msgstr ""
+
+#: app/user/templates/user/login.html:10
+msgid "login"
+msgstr ""
+
+#: app/user/templates/user/login.html:36
+msgid "Create an"
+msgstr ""
+
+#: app/user/templates/user/login.html:36
+msgid "Account"
+msgstr ""
+
+#: app/user/templates/user/login.html:40
+msgid "forgot password?"
+msgstr ""
+
+#: app/user/templates/user/login.html:54
+msgid "Recovery password"
+msgstr ""
+
+#: app/user/templates/user/login.html:69
+msgid "update"
+msgstr ""
 
 #: app/user/templates/user/register.html:9
 msgid "Registration form"
-msgstr "რეგისტრაციის ფორმა"
+msgstr ""
 
 #: app/user/templates/user/register.html:45
 msgid "Already have an account?"
-msgstr "უკვე დარეგისტრირებული ხართ?"
+msgstr ""
 

@@ -6,54 +6,59 @@
     {{ flash_alert() }}
     <div class="col md-12" >
         <button type="button" id="product_add"  class="btn btn-success float-right"
-                data-toggle="modal" data-target="#mymodal">პროდუქტის დამატება</button>
+                data-toggle="modal" data-target="#mymodal">{{ _('Add the product') }}</button>
+        {{ pagination.info }}
+        {{ pagination.links }}
         <table id="tableX" class="table table-hover">
       <tr>
         <th>ID</th>
-        <th>დასახელება</th>
-        <th>ღირებულება</th>
-        <th>რაოდენობა</th>
-        <th>რედაქტირება</th>
+        <th>{{ _('Name') }}</th>
+        <th>{{ _('Price') }}</th>
+        <th>{{ _('Quantity') }}</th>
+        <th>{{ _('Action') }}</th>
       </tr>
-{% for row in items %}
+{% for row in data.items %}
           <tr>
             <td>{{row.id}}</td>
             <td>{{row.name}}</td>
-            <td>{{row.price}} ლარი</td>
-            <td>{{row.quantity}} ცალი</td>
+            <td>{{row.price}} {{ _('Gel') }}</td>
+            <td>{{row.quantity}} {{ _('pieces') }}</td>
             <td>
-                <a href="StoreModel.update/{{row.id}}" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{row.id}}">Edit</a>
-                <a href="delete/{{row.id}}" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure to delete the item?')">Delete</a>
+                <a href="StoreModel.update/{{row.id}}" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{row.id}}">{{ _('Edit') }}</a>
+                <a href="delete/{{row.id}}" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure to delete the item?')">{{ _('Delete') }}</a>
             </td>
           </tr>
+          {{ pagination.links }}
+
+
     <div id="modaledit{{row.id}}" class="modal fade" role="dialog">
        <div class="modal-dialog">
           <div class="modal-content">
              <div class="modal-header">
-                <h4 class="modal-title">პროდუქტის განახლება</h4>
+                <h4 class="modal-title">{{ _('Update the Product') }}</h4>
              </div>
              <div class="modal-body">
                 <form action="{{url_for('StoreModel.store_edit')}}" method="POST">
                    <div class="form-group">
-                      <label>დასახელება:</label>
+                      <label>{{ _('Name:') }}</label>
                        <input type="hidden"  name="id" value="{{row.id}}">
                       <input type="text" class="form-control" name="name" value="{{row.name}}">
                    </div>
                    <div class="form-group">
-                      <label>ფასი:</label>
+                      <label>{{ _('Price:') }}</label>
                       <input type="text" step= 0.01 class="form-control" name="price" value="{{row.price}}">
                    </div>
                    <div class="form-group">
-                      <label>რაოდენობა:</label>
+                      <label>{{ _('Quantity:') }}</label>
                       <input type="text" class="form-control" name="quantity" value="{{row.quantity}}">
                    </div>
                    <div class="text-center">
-                      <button class="btn btn-primary" type="submit" >განახლება</button>
+                      <button class="btn btn-primary" type="submit" >{{ _('Update') }}</button>
                    </div>
                 </form>
              </div>
              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">დახურვა</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ _('Close') }}</button>
              </div>
           </div>
        </div>
@@ -63,7 +68,7 @@
    <div class="modal-dialog">
       <div class="modal-content">
              <div class="modal-header">
-                <h4 class="modal-title">პროდუქტის დამატება</h4>
+                <h4 class="modal-title">{{ _('Add a product') }}</h4>
              </div>
              <div class="modal-body">
                 <form action="{{url_for('StoreModel.Store_add')}}" method="POST">
@@ -77,12 +82,12 @@
                   <input type="number" class="form-control" name="quantity" required="1" placeholder="რაოდენობა">
                </div>
                    <div class="text-center">
-                      <button class="btn btn-primary" type="submit" >დამატება</button>
+                      <button class="btn btn-primary" type="submit" >{{ _('Add') }}</button>
                    </div>
                 </form>
              </div>
              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">დახურვა</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ _('Close') }}</button>
              </div>
           </div>
       </div>
@@ -90,4 +95,5 @@
         </table>
     </div>
 </div>
+
 {% endblock content%}
