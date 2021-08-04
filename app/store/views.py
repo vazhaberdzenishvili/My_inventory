@@ -29,7 +29,7 @@ def store():
         items = StoreModel.query.paginate(page=page, per_page=ROWS_PER_PAGE)
         return render_template('store.html', items=items)
 
-    flash("გთხოვთ გაიაროთ ავტორიზაცია.")
+    flash("გთხოვთ გაიაროთ ავტორიზაცია")
     return redirect(url_for('UserModel.login'))
 
 
@@ -65,5 +65,5 @@ def store_edit():
         item_data.price = request.form['price']
         item_data.quantity = request.form['quantity']
         db.session.commit()
-        flash(f"პროდუქტი  {item_data.name}  წარმატებით განახლდა", 'success')
+        flash(f"პროდუქტი  {item_data.name}  წარმატებით განახლდა.", 'success')
         return redirect(url_for('StoreModel.store'))
