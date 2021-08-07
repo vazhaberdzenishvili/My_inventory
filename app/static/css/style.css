@@ -266,18 +266,26 @@ nav{
     margin: 10px;
     opacity: 0.6;
 }
+.language_picker{
+    display: flex;
+    margin: 8px auto;
+}
 .language_selector{
-    /*background-image: url("../assets/eng.png");*/
-    padding: 10px;
+    position: absolute;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    cursor: pointer;
 }
-select option:hover{
-    /*display: block;*/
+.language_list{
+    position: absolute;
+    flex-direction: column;
+    background-color: white;
+    visibility: hidden;
+    transition: opacity 0.2s linear, visibility 0.2s linear;
 }
-.geo_logo{
-    width: 30px;
-}
-.eng_logo {
-    width: 30px;
+.language_list_item{
+    padding: 1rem;
 }
 .lead{
     font-family: cursive;
@@ -289,6 +297,11 @@ select option:hover{
 .jumbotron{
     font-family: cursive;
     border-radius: 6px;
+}
+.fa-globe{
+    display: flex;
+    position: absolute;
+
 }
 .fa-globe:hover{
     color: #4c9bff;

@@ -5,6 +5,7 @@
 <head>
     <title>MyInventory</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -13,6 +14,7 @@
 </head>
 
 <body>
+
     <nav class="navbar navbar-dark bg-dark text-white navbar-expand-md">
       <a class="navbar-brand" href="{{ url_for('main.home_page') }}">MyInventory</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,17 +33,46 @@
             {% if current_user.has_role('Admin') %}
                   <a class="btn btn-danger btn-xs" type="button" id="admin_button" href="{{ url_for('admin.index') }}">Admin</a>
                   <a class="nav-item nav-link" href="{{ url_for('logout') }}">{{ _('Logout')}}</a>
+                  <a href="/language" class="nav-item nav-link"><i class="fas fa-globe"></i></a>
                   <a href="/language" class="nav-item nav-link "><i class="fas fa-globe"></i></a>
+                  <div class="language_picker">
+                       <div class="flag">
+{#                         <a href="/language" class="nav-item nav-link"><i class="fas fa-globe"></i></a>#}
+                           <img src="https://www.countryflags.io/ge/shiny/24.png">
+                       </div>
+                  </div>
             {%else%}
                 <div class="navbar-nav m-auto">
                       <a class="nav-item nav-link" href="{{ url_for('logout') }}">{{ _('Logout')}}</a>
-                      <a href="/language" class="nav-item nav-link"><i class="fas fa-globe"></i></a>
+{#                      <a href="/language" class="nav-item nav-link"><i class="fas fa-globe"></i></a>#}
+                      <div class="language_picker">
+                           <div class="flag">
+    {#                            <a href="/language" class="nav-item nav-link"><i class="fas fa-globe"></i></a>#}
+                               <img src="https://www.countryflags.io/ge/shiny/24.png">
+                           </div>
+                      </div>
                 </div>
             {% endif %}
         {% else %}
             <a class="nav-item nav-link" href="{{ url_for('UserModel.login') }}">{{ _('Login')}}</a>
             <a class="nav-item nav-link" href="{{ url_for('UserModel.registration') }}">{{ _('Register')}}</a>
-            <a href="/language" class="nav-item nav-link"><i class="fas fa-globe"></i></a>
+            <div class="language_picker">
+                    <div class="language_selector">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="language_list">
+                        <div class="language_list_item">
+                            <a href="/language" class="nav-item nav-link">English
+                                <img src="https://www.countryflags.io/ge/shiny/24.png">
+                            </a>
+                        </div>
+                        <div class="language_list_item">Georgian
+                            <a href="/language" class="nav-item nav-link">
+                                <img src="https://www.countryflags.io/en/shiny/24.png">
+                            </a>
+                        </div>
+                    </div>
+            </div>
         {% endif %}
 
         </div>
