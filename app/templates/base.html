@@ -45,34 +45,34 @@
                 <div class="navbar-nav m-auto">
                       <a class="nav-item nav-link" href="{{ url_for('logout') }}">{{ _('Logout')}}</a>
 {#                      <a href="/language" class="nav-item nav-link"><i class="fas fa-globe"></i></a>#}
-                      <div class="language_picker">
-                           <div class="flag">
+{#                      <div class="language_picker">#}
+{#                           <div class="flag">#}
     {#                            <a href="/language" class="nav-item nav-link"><i class="fas fa-globe"></i></a>#}
-                               <img src="https://www.countryflags.io/ge/shiny/24.png">
-                           </div>
-                      </div>
+{#                               <img src="https://www.countryflags.io/ge/shiny/24.png">#}
+{#                           </div>#}
+{#                      </div>#}
                 </div>
             {% endif %}
         {% else %}
             <a class="nav-item nav-link" href="{{ url_for('UserModel.login') }}">{{ _('Login')}}</a>
             <a class="nav-item nav-link" href="{{ url_for('UserModel.registration') }}">{{ _('Register')}}</a>
-            <div class="language_picker">
-                    <div class="language_selector">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <div class="language_list">
-                        <div class="language_list_item">
-                            <a href="/language" class="nav-item nav-link">English
-                                <img src="https://www.countryflags.io/ge/shiny/24.png">
-                            </a>
-                        </div>
-                        <div class="language_list_item">Georgian
-                            <a href="/language" class="nav-item nav-link">
-                                <img src="https://www.countryflags.io/en/shiny/24.png">
-                            </a>
-                        </div>
-                    </div>
-            </div>
+{#            <div class="language_picker">#}
+{#                    <div class="language_selector">#}
+{#                        <i class="fas fa-globe"></i>#}
+{#                    </div>#}
+{#                    <div class="language_list">#}
+{#                        <div class="language_list_item">#}
+{#                            <a href="/language" class="nav-item nav-link">English#}
+{#                                <img src="https://www.countryflags.io/ge/shiny/24.png">#}
+{#                            </a>#}
+{#                        </div>#}
+{#                        <div class="language_list_item">Georgian#}
+{#                            <a href="/language" class="nav-item nav-link">#}
+{#                                <img src="https://www.countryflags.io/en/shiny/24.png">#}
+{#                            </a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#            </div>#}
         {% endif %}
 
         </div>

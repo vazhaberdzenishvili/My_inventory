@@ -120,7 +120,7 @@ nav{
     margin: 10px;
 }
 .registration_redirect {
-    font-family: cursive;
+    font-family: sans-serif;
     text-align: center;
     margin: 15px;
 }
@@ -144,14 +144,19 @@ nav{
 }
 
 .login_redirect{
-    font-family: cursive;
+    font-family: sans-serif;
     text-align: center;
-    margin-top: 3%;
+    color: black;
+    font-weight: bold;
+    margin-top: 5px;
+}
+.login-redirect a{
+    text-decoration: none;
 }
 .login_redirect a:hover{
     transition: 0.7s;
-    padding-left: 10px;
-    font-size: 20px;
+    padding: 5px;
+    color: green;
 
 }
 
@@ -266,27 +271,27 @@ nav{
     margin: 10px;
     opacity: 0.6;
 }
-.language_picker{
-    display: flex;
-    margin: 8px auto;
-}
-.language_selector{
-    position: absolute;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem;
-    cursor: pointer;
-}
-.language_list{
-    position: absolute;
-    flex-direction: column;
-    background-color: white;
-    visibility: hidden;
-    transition: opacity 0.2s linear, visibility 0.2s linear;
-}
-.language_list_item{
-    padding: 1rem;
-}
+/*.language_picker{*/
+/*    display: flex;*/
+/*    margin: 8px auto;*/
+/*}*/
+/*.language_selector{*/
+/*    position: absolute;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*    padding: 1.5rem;*/
+/*    cursor: pointer;*/
+/*}*/
+/*.language_list{*/
+/*    position: absolute;*/
+/*    flex-direction: column;*/
+/*    background-color: white;*/
+/*    visibility: hidden;*/
+/*    transition: opacity 0.2s linear, visibility 0.2s linear;*/
+/*}*/
+/*.language_list_item{*/
+/*    padding: 1rem;*/
+/*}*/
 .lead{
     font-family: cursive;
     margin-top: 40px;
