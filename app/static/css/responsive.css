@@ -1,0 +1,10 @@
+@media (max-width: 800px) {
+    .container {
+        max-width: 500px;
+    }
+}
+@media (max-width: 800px) {
+    .login_container {
+        max-width: 500px;
+    }
+}

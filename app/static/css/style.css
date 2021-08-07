@@ -11,17 +11,17 @@ nav{
     padding: 10px;
     background-color: transparent;
 }
-.container{
-    top: -10px;
-    width: 1000px;
-    align-items: center;
-}
+
 .mr-auto{
     display: flex;
     padding-left: 3%;
 }
 .m-auto {
     display: flex;
+
+}
+.nav-link:focus{
+    color: white;
 
 }
 
@@ -38,52 +38,68 @@ nav{
 #search-btn{
     transform: translate(35%, 165%);
 }
-.login_form{
-    position: absolute;
+.container{
     display: flex;
-    flex-direction: column;
+    margin: 0 auto;
+    max-width: 1000px;
+    width: 100%;
     justify-content: center;
     align-items: center;
-    height: 500px;
-    width: 300px;
-    box-shadow: 0 0 10px rgba(0,0,0,1);
-    gap: 5px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    border-radius: 10px;
-    padding: 60px;
 }
-.register_form{
-    position: absolute;
+.login_form{
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    gap: 10px;
+    align-items: center;
+    max-width: 300px;
+    width: 100%;
     box-shadow: 0 0 10px rgba(0,0,0,1);
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%,-50%);
     border-radius: 10px;
-    padding: 30px;
-    text-align: center;
 }
 .logfield .form-control{
+    display: flex;
     text-align: center;
-    width: 200px;
-    top: 60%;
+    max-width: 200px;
+    width: 100%;
+    margin: 15px auto;
     padding: 20px 10px;
     border-radius: 10px;
     border-color: #cdb4db;
     transition: 0.25s;
 }
+.logfield{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+#login_title{
+    font-size: 30px;
+    font-family: cursive;
+    margin: 40px auto;
+}
+#forgot {
+    font-family: cursive;
+}
+
+.register_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 300px;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,1);
+    border-radius: 10px;
+    text-align: center;
+}
 .regfield .form-control{
+    display: flex;
     text-align: center;
     align-items: center;
-    left: 50%;
     width: 200px;
-    top: 60%;
+    max-width: 100%;
+    margin: 7px auto;
     padding: 20px 10px;
     border-radius: 10px;
     border-color: #cdb4db;
@@ -93,41 +109,29 @@ nav{
 .regfield .form-control:focus{
     width: 260px;
     height: 40px;
-    max-width: 100%;
 }
 .regfield .form-control:hover{
     border-color: #cdb3db;
 }
 #reg_title{
-    font-size: 30px;
-    position: relative;
     font-family: cursive;
-    text-align: center;
-    margin-bottom: 5%;
-}
-#login_title{
     font-size: 30px;
-    position: relative;
-    font-family: cursive;
     text-align: center;
-    margin-bottom: 25%;
+    margin: 10px;
 }
 .registration_redirect {
     font-family: cursive;
     text-align: center;
-    margin-top: 10%;
+    margin: 15px;
 }
 .submit{
-    display: inline;
     font-family: cursive;
+    margin: 10px auto;
     border: 2px solid limegreen;
     text-align: center;
-    margin-top: 10%;
-    padding: 5px 16px;
+    padding: 7px 20px;
     border-radius: 10px;
-    max-width: 90px;
     transition: 0.5s;
-
 }
 .submit:hover{
     background: #4f9e3e;
@@ -150,6 +154,7 @@ nav{
     font-size: 20px;
 
 }
+
 .alert-success{
     position: absolute;
     z-index: 10;
@@ -195,45 +200,23 @@ nav{
 .jumbotron{
     font-family: cursive;
 }
-#forgot {
-    font-family: cursive;
-    position: relative;
-    align-items: center;
-    text-align: center;
-}
-#forgot_pass{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-@media screen and (max-width: 100px){
-    .login_form,.register_form{
-        max-height: 80%;
-        max-width: 80%;
-    }
-}
 .social_buttons{
     display: flex;
     margin: 30px;
-    gap: 30px;
     text-decoration: none;
 }
 .social_buttons a{
     display: flex;
-    width: 45px;
-    height: 45px;
+    margin: 10px;
+    padding: 10px;
     background: dimgrey;
     color: white;
     border-radius: 50%;
-    justify-content: center;
-    align-items: center;
     transition: 0.5s;
-}
-.social_buttons a{
-    text-decoration: none;
     font-size: 28px;
+    text-decoration: none;
 }
+
 .fa-google:hover{
     background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
     -webkit-background-clip: text;
@@ -254,15 +237,9 @@ nav{
     transform: translate(0, -10px);
 }
 .username_icon{
-    display: flex;
     position: absolute;
-    margin: 11px;
-    opacity: 0.6;
-}
-.password_icon{
     display: flex;
-    position: absolute;
-    margin: 11px;
+    margin: 10px;
     opacity: 0.6;
 }
 #product_add{
@@ -280,9 +257,13 @@ nav{
 }
 .password_eye{
     position: absolute;
-    display: inline-block;
-    margin: 13px;
-    right: 45px;
+    margin: 175px;
+    opacity: 0.6;
+}
+
+.password_icon{
+    position: absolute;
+    margin: 10px;
     opacity: 0.6;
 }
 .language_selector{
