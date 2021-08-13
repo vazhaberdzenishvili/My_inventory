@@ -15,58 +15,65 @@
 
 <body>
     <header>
-            <div class="brand">
-                <ul>
-                    <li>
-                        <a class ="brand" href="{{ url_for('main.home_page') }}">MyInventory</a>
+        <div class = "navbar_brand">
+                <a class ="nav-link" href="{{ url_for('main.home_page') }}">MyInventory</a>
+            </div>
+        <nav class="navbar">
+
+            <div class="guest-nav-list">
+    {#              Guest navigation#}
+                <ul class="nav-list">
+                    <li class="nav-link">
+                        <a href="{{ url_for('main.home_page') }}">{{ _('Home')}}</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{{ url_for('main.about_us') }}">{{ _('About')}}</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{{ url_for('StoreModel.store') }}">{{ _('Inventory')}}</a>
                     </li>
                 </ul>
             </div>
-
-            <nav class="navbar">
-    {#          Guest navigation#}
-                <div class="guest-nav-list">
+        </nav>
+        <div class="user-nav-list">
                     <ul class="nav-list">
                         <li class="nav-link">
-                            <a href="{{ url_for('main.home_page') }}">{{ _('Home')}}</a>
+                            <a href="{{ url_for('UserModel.login') }}">{{ _('Login')}}</a>
                         </li>
                         <li class="nav-link">
-                            <a href="{{ url_for('main.about_us') }}">{{ _('About')}}</a>
+                            <a href="{{ url_for('UserModel.registration') }}">{{ _('Register')}}</a>
                         </li>
+
+    {#                User navigation    #}
+                    {% if current_user.is_authenticated %}#}
+    {#                  Admin navigation  #}
+                        {% if current_user.has_role('Admin') %}
+                           <li class="nav-link">
+                               <a type="button" id="admin_button" href="{{ url_for('admin.index') }}">{{ _('Admin')}}</a>
+                           </li>
+                           <li class="nav-link">
+                               <a href="{{ url_for('logout') }}">{{ _('Logout')}}</a>
+                           </li>
+
+    {#                  User without status Admin    #}
                         <li class="nav-link">
-                            <a href="{{ url_for('StoreModel.store') }}">{{ _('Inventory')}}</a>
+                           <a href="{{ url_for('logout') }}">{{ _('Logout')}}</a>#}
                         </li>
+                        {% endif %}
+                    {% endif %}
+                    <li class=" nav-link">
+                       <i class="fas fa-globe"></i>
+                        <ul class="language_picker">
+                            <a href="/language" class="flag">
+                                <img src="https://www.countryflags.io/GB/shiny/24.png" alt="en">
+                            </a>
+                            <a href="/language" class="flag">
+                                <img src="https://www.countryflags.io/ge/shiny/24.png" alt="ge">
+                            </a>
+                        </ul>
+                    </li>
                     </ul>
                 </div>
-            </nav>
-            <div class="user-nav-list">
-                <ul class="nav-list">
-                    <li class="nav-link">
-                        <a href="{{ url_for('UserModel.login') }}">{{ _('Login')}}</a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="{{ url_for('UserModel.registration') }}">{{ _('Register')}}</a>
-                    </li>
-
-{#                User navigation    #}
-                {% if current_user.is_authenticated %}#}
-{#                  Admin navigation  #}
-                    {% if current_user.has_role('Admin') %}
-                       <li class="nav-link">
-                           <a type="button" id="admin_button" href="{{ url_for('admin.index') }}">{{ _('Admin')}}</a>
-                       </li>
-                       <li class="nav-link">
-                           <a href="{{ url_for('logout') }}">{{ _('Logout')}}</a>
-                       </li>
-
-{#                  User without status Admin    #}
-                    <li class="nav-link">
-                       <a href="{{ url_for('logout') }}">{{ _('Logout')}}</a>#}
-                    </li>
-                    {% endif %}
-                {% endif %}
-                    </ul>
-            </div>
     </header>
 {#    <nav class="navbar navbar-dark bg-dark text-white navbar-expand-md">#}
 {#      <a class="navbar-brand" href="{{ url_for('main.home_page') }}">MyInventory</a>#}
@@ -131,7 +138,7 @@
 {#        </div>#}
 {#      </div>#}
 {#    </nav>#}
-<br>
+
 <div class="container">
     {% block content %}
     {% endblock %}
