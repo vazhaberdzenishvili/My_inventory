@@ -14,36 +14,89 @@
 </head>
 
 <body>
+    <header>
+            <div class="brand">
+                <ul>
+                    <li>
+                        <a class ="brand" href="{{ url_for('main.home_page') }}">MyInventory</a>
+                    </li>
+                </ul>
+            </div>
 
-    <nav class="navbar navbar-dark bg-dark text-white navbar-expand-md">
-      <a class="navbar-brand" href="{{ url_for('main.home_page') }}">MyInventory</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <!--    basic navigation -->
-      <div class="navbar-nav mr-auto">
-          <a class="nav-link">
-             {{nav_bar_generator(pages)}}
-          </a>
-      </div>
-    <!--    user navigation -->
-        <div class="navbar-nav">
-        {% if current_user.is_authenticated %}
-            {% if current_user.has_role('Admin') %}
-                  <a class="btn btn-danger btn-xs" type="button" id="admin_button" href="{{ url_for('admin.index') }}">Admin</a>
-                  <a class="nav-item nav-link" href="{{ url_for('logout') }}">{{ _('Logout')}}</a>
-                  <a href="/language" class="nav-item nav-link"><i class="fas fa-globe"></i></a>
-                  <a href="/language" class="nav-item nav-link "><i class="fas fa-globe"></i></a>
-                  <div class="language_picker">
-                       <div class="flag">
+            <nav class="navbar">
+    {#          Guest navigation#}
+                <div class="guest-nav-list">
+                    <ul class="nav-list">
+                        <li class="nav-link">
+                            <a href="{{ url_for('main.home_page') }}">{{ _('Home')}}</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="{{ url_for('main.about_us') }}">{{ _('About')}}</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="{{ url_for('StoreModel.store') }}">{{ _('Inventory')}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="user-nav-list">
+                <ul class="nav-list">
+                    <li class="nav-link">
+                        <a href="{{ url_for('UserModel.login') }}">{{ _('Login')}}</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{{ url_for('UserModel.registration') }}">{{ _('Register')}}</a>
+                    </li>
+
+{#                User navigation    #}
+                {% if current_user.is_authenticated %}#}
+{#                  Admin navigation  #}
+                    {% if current_user.has_role('Admin') %}
+                       <li class="nav-link">
+                           <a type="button" id="admin_button" href="{{ url_for('admin.index') }}">{{ _('Admin')}}</a>
+                       </li>
+                       <li class="nav-link">
+                           <a href="{{ url_for('logout') }}">{{ _('Logout')}}</a>
+                       </li>
+
+{#                  User without status Admin    #}
+                    <li class="nav-link">
+                       <a href="{{ url_for('logout') }}">{{ _('Logout')}}</a>#}
+                    </li>
+                    {% endif %}
+                {% endif %}
+                    </ul>
+            </div>
+    </header>
+{#    <nav class="navbar navbar-dark bg-dark text-white navbar-expand-md">#}
+{#      <a class="navbar-brand" href="{{ url_for('main.home_page') }}">MyInventory</a>#}
+{#      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">#}
+{#        <span class="navbar-toggler-icon"></span>#}
+{#      </button>#}
+{#      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">#}
+{#    <!--    basic navigation -->#}
+{#      <div class="navbar-nav mr-auto">#}
+{#          <a class="nav-link">#}
+{#             {{nav_bar_generator(pages)}}#}
+{#          </a>#}
+{#      </div>#}
+{#    <!--    user navigation -->#}
+{#        <div class="navbar-nav">#}
+{#        {% if current_user.is_authenticated %}#}
+{#            {% if current_user.has_role('Admin') %}#}
+{#                  <a class="btn btn-danger btn-xs" type="button" id="admin_button" href="{{ url_for('admin.index') }}">Admin</a>#}
+{#                  <a class="nav-item nav-link" href="{{ url_for('logout') }}">{{ _('Logout')}}</a>#}
+{#                  <a href="/language" class="nav-item nav-link"><i class="fas fa-globe"></i></a>#}
+{#                  <a href="/language" class="nav-item nav-link "><i class="fas fa-globe"></i></a>#}
+{#                  <div class="language_picker">#}
+{#                       <div class="flag">#}
 {#                         <a href="/language" class="nav-item nav-link"><i class="fas fa-globe"></i></a>#}
-                           <img src="https://www.countryflags.io/ge/shiny/24.png">
-                       </div>
-                  </div>
-            {%else%}
-                <div class="navbar-nav m-auto">
-                      <a class="nav-item nav-link" href="{{ url_for('logout') }}">{{ _('Logout')}}</a>
+{#                           <img src="https://www.countryflags.io/ge/shiny/24.png">#}
+{#                       </div>#}
+{#                  </div>#}
+{#            {%else%}#}
+{#                <div class="navbar-nav m-auto">#}
+{#                      <a class="nav-item nav-link" href="{{ url_for('logout') }}">{{ _('Logout')}}</a>#}
 {#                      <a href="/language" class="nav-item nav-link"><i class="fas fa-globe"></i></a>#}
 {#                      <div class="language_picker">#}
 {#                           <div class="flag">#}
@@ -51,11 +104,11 @@
 {#                               <img src="https://www.countryflags.io/ge/shiny/24.png">#}
 {#                           </div>#}
 {#                      </div>#}
-                </div>
-            {% endif %}
-        {% else %}
-            <a class="nav-item nav-link" href="{{ url_for('UserModel.login') }}">{{ _('Login')}}</a>
-            <a class="nav-item nav-link" href="{{ url_for('UserModel.registration') }}">{{ _('Register')}}</a>
+{#                </div>#}
+{#            {% endif %}#}
+{#        {% else %}#}
+{#            <a class="nav-item nav-link" href="{{ url_for('UserModel.login') }}">{{ _('Login')}}</a>#}
+{#            <a class="nav-item nav-link" href="{{ url_for('UserModel.registration') }}">{{ _('Register')}}</a>#}
 {#            <div class="language_picker">#}
 {#                    <div class="language_selector">#}
 {#                        <i class="fas fa-globe"></i>#}
@@ -73,11 +126,11 @@
 {#                        </div>#}
 {#                    </div>#}
 {#            </div>#}
-        {% endif %}
-
-        </div>
-      </div>
-    </nav>
+{#        {% endif %}#}
+{##}
+{#        </div>#}
+{#      </div>#}
+{#    </nav>#}
 <br>
 <div class="container">
     {% block content %}
