@@ -25,20 +25,25 @@ def get_locale():
         the default language is 'ka'
         """
     if 'locale' not in session.keys():
-        session['locale'] = 'ka'
+        session['locale'] = 'en'
     return session['locale']
 
 
-@main_blueprint.route('/language', methods=['GET', 'POST'])
-def toggle_lang():
-    if 'locale' in session.keys():
-        if session['locale'] == 'en':
-            session['locale'] = 'ka'
-        elif session['locale'] == 'ka':
-            session['locale'] = 'en'
-    else:
-        session['locale'] = 'en'
+@main_blueprint.route('/en', methods=['GET', 'POST'])
+def toggle_en_lang():
+    session['locale'] = 'en'
+    print(session['locale'])
 
+    if request.referrer:
+        return redirect(request.referrer)
+    else:
+        return redirect(url_for('UserModel.login'))
+
+
+@main_blueprint.route('/ka', methods=['GET', 'POST'])
+def toggle_ka_lang():
+    session['locale'] = 'ka'
+    print('ka')
     if request.referrer:
         return redirect(request.referrer)
     else:

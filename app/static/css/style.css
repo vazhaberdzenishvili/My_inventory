@@ -8,7 +8,6 @@ body {
 header{
     display: flex;
     align-items: center;
-    justify-content: space-between;
     background-color: black;
     opacity: 0.7;
 }
@@ -16,7 +15,10 @@ nav{
     position: fixed;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+}
+.navbar{
+    justify-content: space-between;
+    width: 100%;
 }
 .nav-list{
     display: flex;
@@ -24,7 +26,7 @@ nav{
 .nav-link {
     display: flex;
     color: silver;
-    font-weight: bolder;
+    font-weight: bold;
 }
 .nav-link a{
     color: silver;
@@ -33,19 +35,18 @@ nav{
 .nav-link a:hover{
     color: white;
 }
+a:active{
+    color: white;
+}
 .nav-link a:focus{
     color: white;
 }
 .navbar_brand{
     display: flex;
-    justify-content: space-between;
+    margin: 0;
 }
 .guest-nav-list a{
     margin-left: 20px;
-}
-.user-nav-list{
-    margin: 10px;
-    justify-content: space-between;
 }
 .search_bar{
     display: flex;
@@ -303,16 +304,21 @@ nav{
 }
 .language_picker{
     display: none;
-    /*margin-top: 15px;*/
-    /*background: #2a323a;*/
-    /*display: flex;*/
-    /*flex-direction: column;*/
 }
 .user-nav-list ul li:hover .language_picker{
     display: block;
     position: absolute;
     background: black;
-    margin-top: 20px;
+    margin: 10px 60px 0 0;
+    padding: 15px 6px;
+    border-radius: 5px;
+}
+.nav_burger{
+    display: none;
+    cursor: pointer;
+    font-size: 20px;
+    margin: 20px;
+    color: white;
 }
 
 .lead{
