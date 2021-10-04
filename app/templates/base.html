@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
+
 </head>
 
 <body>
@@ -43,7 +44,7 @@
                             </li>
 
         {#                User navigation    #}
-                        {% if current_user.is_authenticated %}#}
+                        {% if current_user.is_authenticated %}
         {#                  Admin navigation  #}
                             {% if current_user.has_role('Admin') %}
                                <li class="nav-link">
@@ -59,7 +60,7 @@
                             </li>
                             {% endif %}
                         {% endif %}
-                            <li class=" nav-link">
+                        <li class=" nav-link">
                                <i class="fas fa-globe">
                                 <ul class="language_picker">
                                     <a href="/en" class="flag">
@@ -71,7 +72,7 @@
                                 </ul>
                                </i>
                             </li>
-                        </ul>
+                </ul>
             </div>
         </nav>
         <div class="nav_burger">
