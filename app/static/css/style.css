@@ -206,6 +206,7 @@ a:active{
     color: white;
     background-color: #4CAF50;
     font-family: sans-serif;
+    z-index: 20;
 }
 .alert-danger{
     position: absolute;
@@ -217,9 +218,11 @@ a:active{
     background-color: #8a0208;
     font-family: sans-serif;
     list-style: none;
+    z-index: 20;
 }
 .store-container{
     display: flex;
+    margin-left: 80px;
     justify-content: center;
     align-items: flex-start;
 }
@@ -322,7 +325,6 @@ a:active{
     margin: 20px;
     color: white;
 }
-
 .lead{
     font-family: cursive;
     margin-top: 40px;
@@ -337,11 +339,17 @@ a:active{
 .fa-globe{
     display: flex;
     font-size: 20px;
-
 }
 .fa-globe:hover{
     color: #4c9bff;
 }
 .table{
     width: 800px;
+}
+.table_addon{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    margin-top: 50px;
 }
