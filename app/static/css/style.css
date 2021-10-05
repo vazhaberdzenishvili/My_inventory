@@ -9,8 +9,17 @@ header{
     display: flex;
     align-items: center;
     background-color: black;
-    opacity: 0.7;
+    opacity: 0.8;
 }
+.container{
+    display: flex;
+    max-width: 1000px;
+    width: 100%;
+    justify-content: center;
+}
+
+/*Navbar */
+
 nav{
     position: fixed;
     display: flex;
@@ -26,7 +35,8 @@ nav{
 .nav-link {
     display: flex;
     color: silver;
-    font-weight: bold;
+    font-family: cursive,sans-serif;
+    font-size: 18px;
 }
 .nav-link a{
     color: silver;
@@ -38,6 +48,11 @@ nav{
 a:active{
     color: white;
 }
+.navbar_brand .nav-link{
+    color: white;
+    font-weight: bolder;
+    font-size: 20px;
+}
 .nav-link a:focus{
     color: white;
 }
@@ -45,29 +60,36 @@ a:active{
     display: flex;
     margin: 0;
 }
+.user-nav-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+.user-nav-list ul li{
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}
 .guest-nav-list a{
     margin-left: 20px;
 }
-.search_bar{
+
+.nav_burger{
+    display: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+}
+
+/*Login*/
+
+.login_container{
     display: flex;
-    margin: 10px auto;
-    justify-content: space-between;
-    align-items: end;
-}
-#search_input{
-    transform: translate(14%, 163%);
-    border-radius: 6px;
-}
-#search-btn{
-    transform: translate(35%, 165%);
-}
-.container{
-    display: flex;
-    margin: 0 auto;
-    max-width: 1000px;
-    width: 100%;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    width: 280px;
+    margin: 50% auto;
 }
 .login_form{
     display: flex;
@@ -98,7 +120,7 @@ a:active{
 #login_title{
     font-size: 30px;
     font-family: cursive;
-    margin: 40px auto;
+    margin: 20px auto;
 }
 .forgot_btn {
     border-radius: 4px;
@@ -111,6 +133,13 @@ a:active{
 }
 .forgot_btn:hover{
     background-color: #105c10;
+}
+/*Registration*/
+.register_container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 50% auto;
 }
 .register_form{
     display: flex;
@@ -161,12 +190,15 @@ a:active{
 .redirect a{
     text-decoration: none;
 }
+
+/*Submit button*/
+
 .submit{
     font-family: cursive;
     margin: 10px auto;
     border: 2px solid limegreen;
     text-align: center;
-    padding: 7px 20px;
+    padding: 9px 25px;
     border-radius: 10px;
     transition: 0.5s;
 }
@@ -179,7 +211,6 @@ a:active{
 #forgot:hover{
     background: darkgreen;
 }
-
 .login_redirect{
     font-family: sans-serif;
     text-align: center;
@@ -192,10 +223,10 @@ a:active{
     color: green;
 }
 
+/*Alert*/
+
 .alert-success{
     position: absolute;
-    z-index: 10;
-    display: flex;
     text-align: center;
     max-width: 450px;
     width: 100%;
@@ -203,11 +234,10 @@ a:active{
     color: white;
     background-color: #4CAF50;
     font-family: sans-serif;
+    z-index: 20;
 }
 .alert-danger{
     position: absolute;
-    display: flex;
-    justify-content: center;
     text-align: center;
     max-width: 450px;
     width: 100%;
@@ -216,26 +246,50 @@ a:active{
     background-color: #8a0208;
     font-family: sans-serif;
     list-style: none;
+    z-index: 20;
 }
 
-.page-wrap {
-    min-height: 100vh;
+/*Store*/
+
+.store-container{
+    display: flex;
+    margin: 5% 0 0 80px;
+    justify-content: center;
+    align-items: flex-start;
 }
 #update_button{
-    padding: 7px 19px;
     border-radius: 10px;
     font-family: cursive;
     background-color: dimgrey;
-    border: 2px solid limegreen;
+}
+#update_button:focus{
+    border: 1px solid limegreen;
 }
 #close_btn{
     padding: 7px 25px;
     border-radius: 10px;
     font-family: cursive;
 }
+.btn-primary{
+    width: 120px;
+}
+.btn-secondary{
+    width: 110px;
+}
+.admin-btn{
+    background-color: #a80208;
+    padding: 8px 18px;
+    border-radius: 3px;
+}
+.admin-btn:hover{
+    background-color: #670608;
+}
 .jumbotron{
     font-family: cursive;
 }
+
+/*Social networks*/
+
 .social_buttons{
     display: flex;
     margin: 30px;
@@ -252,7 +306,6 @@ a:active{
     font-size: 28px;
     text-decoration: none;
 }
-
 .fa-google:hover{
     background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
     -webkit-background-clip: text;
@@ -272,36 +325,35 @@ a:active{
     background: black;
     transform: translate(0, -10px);
 }
+
+/*Font-awesome*/
+
 .username_icon{
     position: absolute;
     display: flex;
     margin: 10px;
     opacity: 0.6;
 }
-#product_add{
-    opacity: 0.9;
-}
-#product_add:hover{
-    transition: 0.6s;
-    opacity: 1.1;
-    z-index: -1;
-}
-.modal-content{
-    text-align: center;
-    align-items: center;
-    font-family: cursive;
-}
 .password_eye{
     position: absolute;
     margin: 175px;
     opacity: 0.6;
 }
-
 .password_icon{
     position: absolute;
     margin: 10px;
     opacity: 0.6;
 }
+.fa-globe{
+    display: flex;
+    font-size: 20px;
+}
+.fa-globe:hover{
+    color: #4c9bff;
+}
+
+/*Language selector*/
+
 .language_picker{
     display: none;
 }
@@ -313,12 +365,26 @@ a:active{
     padding: 15px 6px;
     border-radius: 5px;
 }
-.nav_burger{
-    display: none;
-    cursor: pointer;
-    font-size: 20px;
-    margin: 20px;
-    color: white;
+
+/*Modal*/
+
+.modal-content{
+    text-align: center;
+    align-items: center;
+    font-family: cursive;
+}
+
+/*table customization*/
+
+.table{
+    width: 800px;
+}
+.table_addon{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    margin-top: 50px;
 }
 
 .lead{
@@ -332,14 +398,4 @@ a:active{
     font-family: cursive;
     border-radius: 6px;
 }
-.fa-globe{
-    display: flex;
-    font-size: 20px;
 
-}
-.fa-globe:hover{
-    color: #4c9bff;
-}
-.table {
-    margin-left: 3rem;
-}
