@@ -14,6 +14,7 @@ header{
 .container{
     display: flex;
     max-width: 1000px;
+    max-height: 500px;
     width: 100%;
     justify-content: center;
 }
@@ -69,7 +70,7 @@ a:active{
 .user-nav-list ul li{
     justify-content: center;
     align-items: center;
-    height: 40px;
+    height: 35px;
 }
 .guest-nav-list a{
     margin-left: 20px;
@@ -89,14 +90,14 @@ a:active{
     justify-content: center;
     align-items: flex-start;
     width: 280px;
-    margin: 50% auto;
+    margin: 5% auto;
 }
 .login_form{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 300px;
+    max-width: 350px;
     width: 100%;
     box-shadow: 0 0 10px rgba(0,0,0,1);
     border-radius: 10px;
@@ -139,7 +140,7 @@ a:active{
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    margin: 50% auto;
+    margin: 2% auto;
 }
 .register_form{
     display: flex;
@@ -222,7 +223,6 @@ a:active{
     transition: 0.2s;
     color: green;
 }
-
 /*Alert*/
 
 .alert-success{
@@ -231,17 +231,22 @@ a:active{
     max-width: 450px;
     width: 100%;
     border-radius: 10px;
+    border: none;
     color: white;
     background-color: #4CAF50;
     font-family: sans-serif;
+    list-style: none;
     z-index: 20;
+    margin-bottom: 50px;
 }
 .alert-danger{
     position: absolute;
     text-align: center;
     max-width: 450px;
     width: 100%;
+    margin-bottom: 50px;
     border-radius: 10px;
+    border: none;
     color: white;
     background-color: #8a0208;
     font-family: sans-serif;
@@ -253,28 +258,41 @@ a:active{
 
 .store-container{
     display: flex;
-    margin: 5% 0 0 80px;
     justify-content: center;
     align-items: flex-start;
+    margin-top: 5px;
 }
-#update_button{
+#store_table{
+    margin-top: 30px;
+    max-width: 90%;
+}
+.text-right{
+    max-width: 90%;
+}
+#update_button {
     border-radius: 10px;
     font-family: cursive;
-    background-color: dimgrey;
+    transition: 0.4s;
+    border: none;
 }
 #update_button:focus{
     border: 1px solid limegreen;
 }
 #close_btn{
-    padding: 7px 25px;
+    padding: 5px 25px;
     border-radius: 10px;
-    font-family: cursive;
+    border: none;
+    font-family: sans-serif;
+    transition: 0.7s ease-in;
 }
 .btn-primary{
     width: 120px;
 }
 .btn-secondary{
     width: 110px;
+}
+#close_btn:hover{
+    background-color: darkred;
 }
 .admin-btn{
     background-color: #a80208;
@@ -292,8 +310,9 @@ a:active{
 
 .social_buttons{
     display: flex;
-    margin: 30px;
+    justify-content: space-between;
     text-decoration: none;
+    margin-top: 20px;
 }
 .social_buttons a{
     display: flex;
