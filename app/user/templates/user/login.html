@@ -3,7 +3,6 @@
 {% block content %}
 
 <fieldset>
-
     <div class="login_container">
         {{ flash_alert() }}
         <form method="POST"  class="login_form">
@@ -54,7 +53,7 @@
                  <div class="modal-body">
                     <form action="{{url_for('UserModel.forgot_password')}}" method="POST">
                       <div class="form-group">
-                      <input type="text" class="form-control" name="username" required="1" placeholder='Recovery password'>
+                      <input type="text" class="form-control" name="username" required="1" placeholder='Username'>
                    </div>
                     <div class="form-group">
                       <input type=password step="0.01" class="form-control" name="password" required="1" placeholder="password">

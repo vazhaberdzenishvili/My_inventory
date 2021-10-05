@@ -25,7 +25,6 @@ class AdminModelView(ModelView):
     def is_accessible(self):
         if current_user.is_authenticated:
             return current_user.has_role("Admin")
-
         flash(gettext("You do not have the role of admin"), "error")
         return redirect(url_for('main.home_page'))
 
