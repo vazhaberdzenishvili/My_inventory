@@ -4,18 +4,15 @@
 
 <div class="store-container">
     {{ flash_alert() }}
-    <div class="col xl-12" >
-            <div class="table_addon">
-                <div class="search_bar">
-                    <form class="form-inline md-form mr-auto mb-4" action = "{{ url_for('StoreModel.store') }}" method="POST">
-                        <input class="form-control mr-sm-2"  id='search_input' type="text" name= 'name' placeholder="Enter the product name" aria-label="Search">
-                        <button class="btn btn-success float-right" id="search-btn" type="submit">Search</button>
-                    </form>
-                </div>
-                <button type="button" id="product_add"  class="btn btn-success float-right"
+    <div class="col md-12" id="store_table " >
+            <form class="form-inline md-form mr-auto mb-4" action = "{{ url_for('StoreModel.store') }}" method="POST">
+              <input class="form-control mr-sm-2"  id='search_input' type="text" name= 'name' placeholder="Enter the product name" aria-label="Search">
+              <button class="btn btn-success float-right" id="search-btn" type="submit">Search</button>
+            </form>
+
+            <button type="button" id="product_add"  class="btn btn-success float-right"
                     data-toggle="modal" data-target="#mymodal">{{ _('Add the product') }}
-                </button>
-            </div>
+            </button>
         <table id="tableX" class="table table-hover">
       <tr>
         <th>ID</th>
@@ -25,7 +22,7 @@
         <th>{{ _('Action') }}</th>
       </tr>
     {% for row in items.items %}
-        <tr>
+          <tr>
             <td>{{row.id}}</td>
             <td>{{row.name}}</td>
             <td>{{row.price}} {{ _('Gel') }}</td>
@@ -70,9 +67,9 @@
           </div>
        </div>
     </div>
-    {% endfor %}
-    <div id="mymodal" class="modal fade" role="dialog" data-keyboard="false" data-backdrop="static">
-        <div class="modal-dialog">
+{% endfor %}
+<div id="mymodal" class="modal fade" role="dialog" data-keyboard="false" data-backdrop="static">
+   <div class="modal-dialog">
       <div class="modal-content">
              <div class="modal-header">
                 <h4 class="modal-title">{{ _('Add a product') }}</h4>
@@ -94,7 +91,7 @@
                 </form>
              </div>
              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ _('Close') }}</button>
+                <button type="button" class="btn btn-secondary" id="close_btn" data-dismiss="modal">{{ _('Close') }}</button>
              </div>
           </div>
       </div>

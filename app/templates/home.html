@@ -5,10 +5,16 @@
           <h1 class="display-4">{{ _('Welcome to the site!')}}</h1>
           <p class="lead">{{ _('This is a site for online inventory management')}}</p>
           <hr class="my-4">
-          <p>{{ _('To use the service, please login')}}</p>
-          <p class="lead">
-            <a class="btn btn-primary btn-lg" href="{{url_for('UserModel.login')}}" role="button">{{ _('Login')}}</a>
-          </p>
+           {%  if current_user.is_authenticated %}
+              <p class="lead">
+                <a class="btn btn-primary btn-lg" href="{{url_for('StoreModel.store')}}" role="button">{{ _('Store')}}</a>
+              </p>
+           {%  else %}
+               <p>{{ _('To use the service, please login')}}</p>
+               <p>
+                  <a class="btn btn-primary btn-lg" href="{{url_for('UserModel.login')}}" role="button">{{ _('Login')}}</a>
+               </p>
+           {%  endif %}
         </div>
     </div>
 {% endblock content %}

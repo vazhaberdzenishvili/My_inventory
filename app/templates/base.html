@@ -41,7 +41,7 @@
         {#                 Amin navigation  #}
                         {% if current_user.has_role('Admin') %}
                             <li class="nav-link">
-                                <a type="button" id="admin_button" href="{{ url_for('admin.index') }}">{{ _('Admin')}}</a>
+                                <a type ='button' class="admin-btn" href ="{{ url_for('admin.index')}} " >{{ _('Admin')}}</a>
                             </li>
                             <li class="nav-link">
                                 <a href="{{ url_for('logout') }}">{{ _('Logout')}}</a>
@@ -59,20 +59,22 @@
                         <li class="nav-link">
                             <a href="{{ url_for('UserModel.registration') }}">{{ _('Register')}}</a>
                         </li>
+                 </ul>
                     {% endif %}
-                    <li class=" nav-link">
-                        <i class="fas fa-globe">
-                            <ul class="language_picker">
-                                <a href="/en" class="flag">
-                                    <img src="https://www.countryflags.io/GB/shiny/24.png" alt="en">
-                                </a>
-                                <a href="/ka" class="flag">
-                                    <img src="https://www.countryflags.io/ge/shiny/24.png" alt="ge">
-                                </a>
-                            </ul>
-                        </i>
-                    </li>
-                </ul>
+                    <ul>
+                        <li class="nav-link">
+                            <i class="fas fa-globe">
+                                <ul class="language_picker">
+                                    <a href="/en" class="flag">
+                                        <img src="https://www.countryflags.io/GB/shiny/24.png" alt="en">
+                                    </a>
+                                    <a href="/ka" class="flag">
+                                        <img src="https://www.countryflags.io/ge/shiny/24.png" alt="ge">
+                                    </a>
+                                </ul>
+                            </i>
+                        </li>
+                    </ul>
             </div>
         </nav>
         <div class="nav_burger">

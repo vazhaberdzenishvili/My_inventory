@@ -38,6 +38,9 @@ def registration():
 def login():
     form = LoginForm()
     if request.method == 'POST':
+        if current_user.is_authenticated:
+            flash(f" you are already logged in",'error')
+            return redirect(url_for('StoreModel.store'))
         if form.validate_on_submit():
             username = form.username.data
             password = form.password.data
@@ -45,8 +48,7 @@ def login():
             if user:
                 if user.check_password(password):
                     login_user(user)
-                    flash(gettext(f" you have successfully registered"), 'success')
-                    print(current_user.email)
+                    flash(gettext(f" you have successfully logged in"), 'success')
                     return redirect(url_for('StoreModel.store'))
                 else:
                     flash(gettext(f"password is incorrect"), 'error')
