@@ -42,3 +42,8 @@
         color: white;
     }
 }
+@media(min-width: 1400px){
+    .login_container{
+        margin-top: 10%;
+    }
+}
