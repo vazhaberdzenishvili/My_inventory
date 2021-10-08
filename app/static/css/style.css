@@ -14,8 +14,8 @@ header{
 .container{
     display: flex;
     max-width: 1000px;
-    max-height: 500px;
     width: 100%;
+    height: 100%;
     justify-content: center;
 }
 
@@ -64,14 +64,16 @@ a:active{
 .user-nav-list{
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    color: silver;
 }
 .user-nav-list ul li{
     justify-content: center;
     align-items: center;
     height: 35px;
 }
+
 .guest-nav-list a{
     margin-left: 20px;
 }
@@ -260,15 +262,11 @@ a:active{
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    margin-top: 5px;
+    margin: 10px 0 0 8%;
 }
-#store_table{
-    margin-top: 30px;
-    max-width: 90%;
-}
-.text-right{
-    max-width: 90%;
-}
+
+/*Button customization*/
+
 #update_button {
     border-radius: 10px;
     font-family: cursive;
@@ -283,7 +281,7 @@ a:active{
     border-radius: 10px;
     border: none;
     font-family: sans-serif;
-    transition: 0.7s ease-in;
+    transition: 0.5s ease-in;
 }
 .btn-primary{
     width: 120px;
@@ -301,9 +299,6 @@ a:active{
 }
 .admin-btn:hover{
     background-color: #670608;
-}
-.jumbotron{
-    font-family: cursive;
 }
 
 /*Social networks*/
@@ -366,23 +361,10 @@ a:active{
 .fa-globe{
     display: flex;
     font-size: 20px;
+    z-index: 10;
 }
 .fa-globe:hover{
     color: #4c9bff;
-}
-
-/*Language selector*/
-
-.language_picker{
-    display: none;
-}
-.user-nav-list ul li:hover .language_picker{
-    display: block;
-    position: absolute;
-    background: black;
-    margin: 10px 60px 0 0;
-    padding: 15px 6px;
-    border-radius: 5px;
 }
 
 /*Modal*/
@@ -402,13 +384,26 @@ a:active{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 50px;
     margin-top: 50px;
+    width: 82%;
 }
 
+.text-right{
+    max-width: 100%;
+}
+
+.search_bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 310px;
+}
 .lead{
     font-family: cursive;
     margin-top: 40px;
+}
+.search_bar input{
+    max-width: 72%;
 }
 .display-4{
     font-family: sans-serif;
@@ -416,5 +411,45 @@ a:active{
 .jumbotron{
     font-family: cursive;
     border-radius: 6px;
+}
+.dropdown{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.dropdown div a{
+    display: block;
+    padding: 3px;
+}
+.dropdown div{
+    visibility: hidden;
+    top: 20px;
+    z-index: 5;
+    position: absolute;
+    padding: 14px 4px 5px 4px;
+}
+
+.dropdown:hover div{
+    visibility: visible;
+    background-color: black;
+    border-radius: 5px;
+    transition: 0.6s;
+}
+.welcome_container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px auto;
+    width: 100%;
+    height: 80%;
+}
+.text1{
+    font-size: 40px;
+    color: darkslategrey;
+    font-weight: bolder;
 }
 

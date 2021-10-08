@@ -53,15 +53,21 @@
                  <div class="modal-body">
                     <form action="{{url_for('UserModel.forgot_password')}}" method="POST">
                       <div class="form-group">
-                      <input type="text" class="form-control" name="username" required="1" placeholder='Username'>
+                          <label>
+                              <input type="text" class="form-control" name="username" placeholder='Username' required>
+                          </label>
+                      </div>
+                    <div class="form-group">
+                        <label>
+                            <input type=password step="0.01" class="form-control" name="password" placeholder="password"  required>
+                        </label>
+                        {#                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>#}
                    </div>
                     <div class="form-group">
-                      <input type=password step="0.01" class="form-control" name="password" required="1" placeholder="password">
-    {#                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>#}
-                   </div>
-                    <div class="form-group">
-                      <input type="password" class="form-control" name="Repassword" required="1" placeholder='Re-enter password'>
-                   </div>
+                        <label>
+                            <input type="password" class="form-control" name="Repassword" placeholder='Re-enter password' required>
+                        </label>
+                    </div>
                        <div class="text-center">
                           <button class="btn btn-primary" type="submit"  id="update_button">{{ _('update')}}</button>
                        </div>
@@ -73,5 +79,4 @@
           </div>
        </div>
     </div>
-</fieldset>
 {% endblock content %}
