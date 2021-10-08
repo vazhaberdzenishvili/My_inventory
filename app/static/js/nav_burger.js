@@ -1,17 +1,7 @@
-// const mainMenu = document.querySelector('.mainMenu');
-const closeMenu = document.querySelector('.nav_menu_close');
-const openMenu = document.querySelector('.nav_menu_open');
-
-
-
-
-openMenu.addEventListener('click',show);
-closeMenu.addEventListener('click',close);
-
-function show(){
-    navbar.style.display = 'flex';
-    navbar.style.top = '0';
-}
-function close() {
-    navbar.style.top = '-100%';
-}
+const toggleButton = document.getElementsByClassName('toggle-button')[0]
+const navbarLinks = document.getElementsByClassName('nav-links')[0]
+const navbarLinks2 = document.getElementsByClassName('nav-links')[1]
+toggleButton.addEventListener('click', () => {
+  navbarLinks.classList.toggle('active')
+  navbarLinks2.classList.toggle('active')
+})

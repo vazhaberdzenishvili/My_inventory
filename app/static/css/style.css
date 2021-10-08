@@ -6,15 +6,23 @@ body {
     background-repeat: no-repeat;
 }
 header{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     background-color: black;
     opacity: 0.8;
 }
 .container{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     max-width: 1000px;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     margin: 10px auto;
 }
 
@@ -22,17 +30,27 @@ header{
 
 nav{
     position: fixed;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 .navbar{
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     width: 100%;
 }
 .nav-list{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 .nav-link {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     color: silver;
     font-family: cursive,sans-serif;
@@ -57,52 +75,85 @@ a:active{
     color: white;
 }
 .navbar_brand{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin: 0;
 }
 .user-nav-list{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     color: silver;
 }
 .user-nav-list ul li{
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     height: 35px;
 }
-
-.guest-nav-list a{
+.guest-nav-list a {
     margin-left: 20px;
 }
-
-.nav_burger{
+.toggle-button{
     display: none;
+    position: absolute;
+    right: 1rem;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 30px;
     color: white;
 }
 
 /*Login*/
 
 .login_container{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    width: 280px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    width: 350px;
     margin: 5% auto;
 }
 .login_form{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     width: 350px;
-    box-shadow: 0 0 10px rgba(0,0,0,1);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,1);
+            box-shadow: 0 0 10px rgba(0,0,0,1);
     border-radius: 10px;
 }
 .logfield .form-control{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     text-align: center;
     max-width: 200px;
@@ -111,12 +162,18 @@ a:active{
     padding: 20px 10px;
     border-radius: 10px;
     border-color: #cdb4db;
+    -webkit-transition: 0.25s;
+    -o-transition: 0.25s;
     transition: 0.25s;
 }
 .logfield{
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 #login_title{
     font-size: 30px;
@@ -130,39 +187,65 @@ a:active{
     background-color: rgba(25,146,25,0.8);
     border: none;
     font-family: sans-serif;
+    -webkit-transition: 0.4s;
+    -o-transition: 0.4s;
     transition: 0.4s;
 }
 .forgot_btn:hover{
     background-color: #105c10;
 }
+
 /*Registration*/
+
 .register_container{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin: 2% auto;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    margin: 15px auto;
 }
 .register_form{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-   width: 300px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,1);
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 300px;
+    padding: 15px;
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,1);
+            box-shadow: 0 0 10px rgba(0,0,0,1);
     border-radius: 10px;
     text-align: center;
 }
 .regfield .form-control{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     text-align: center;
-    align-items: center;
-    width: 200px;
-    max-width: 100%;
-    margin: 7px auto;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    max-width: 200px;
+    width: 100%;
+    margin: 5px auto;
     padding: 20px 10px;
     border-radius: 10px;
     border-color: #cdb4db;
+    -webkit-transition: 0.4s;
+    -o-transition: 0.4s;
     transition: 0.4s;
     opacity: 1;
 }
@@ -177,7 +260,7 @@ a:active{
     font-family: cursive;
     font-size: 30px;
     text-align: center;
-    margin: 10px;
+    margin: 12px auto;
 }
 .registration_redirect {
     font-family: sans-serif;
@@ -200,6 +283,8 @@ a:active{
     text-align: center;
     padding: 9px 25px;
     border-radius: 10px;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
     transition: 0.5s;
 }
 .submit:hover{
@@ -219,6 +304,8 @@ a:active{
     margin: 5px;
 }
 .redirect a:hover{
+    -webkit-transition: 0.2s;
+    -o-transition: 0.2s;
     transition: 0.2s;
     color: green;
 }
@@ -256,9 +343,15 @@ a:active{
 /*Store*/
 
 .store-container{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
     margin: 10px 0 0 8%;
 }
 
@@ -267,6 +360,8 @@ a:active{
 #update_button {
     border-radius: 10px;
     font-family: cursive;
+    -webkit-transition: 0.4s;
+    -o-transition: 0.4s;
     transition: 0.4s;
     border: none;
 }
@@ -278,6 +373,8 @@ a:active{
     border-radius: 10px;
     border: none;
     font-family: sans-serif;
+    -webkit-transition: 0.5s ease-in;
+    -o-transition: 0.5s ease-in;
     transition: 0.5s ease-in;
 }
 .btn-primary{
@@ -301,18 +398,26 @@ a:active{
 /*Social networks*/
 
 .social_buttons{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     text-decoration: none;
     margin-top: 20px;
 }
 .social_buttons a{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin: 10px;
     padding: 10px;
     background: dimgrey;
     color: white;
     border-radius: 50%;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
     transition: 0.5s;
     font-size: 28px;
     text-decoration: none;
@@ -322,25 +427,35 @@ a:active{
     -webkit-background-clip: text;
     color: transparent;
    -webkit-text-fill-color: transparent;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
     transition: 0.3s;
 }
 .social_buttons #google:hover{
     background-color: white;
-    transform: translate(0, -10px);
+    -webkit-transform: translate(0, -10px);
+        -ms-transform: translate(0, -10px);
+            transform: translate(0, -10px);
 }
 .social_buttons #linkedin:hover{
     background: #4c9bff;
-    transform: translate(0, -10px);
+    -webkit-transform: translate(0, -10px);
+        -ms-transform: translate(0, -10px);
+            transform: translate(0, -10px);
 }
 .social_buttons #github:hover{
     background: black;
-    transform: translate(0, -10px);
+    -webkit-transform: translate(0, -10px);
+        -ms-transform: translate(0, -10px);
+            transform: translate(0, -10px);
 }
 
 /*Font-awesome*/
 
 .username_icon{
     position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin: 10px;
     opacity: 0.6;
@@ -356,6 +471,8 @@ a:active{
     opacity: 0.6;
 }
 .fa-globe{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     font-size: 20px;
     z-index: 10;
@@ -368,7 +485,9 @@ a:active{
 
 .modal-content{
     text-align: center;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     font-family: cursive;
 }
 
@@ -378,9 +497,15 @@ a:active{
     width: 800px;
 }
 .table_addon{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     margin-top: 50px;
     width: 82%;
 }
@@ -390,9 +515,15 @@ a:active{
 }
 
 .search_bar{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     width: 310px;
 }
 .lead{
@@ -412,13 +543,25 @@ a:active{
 .next_login{
     margin-bottom: 10px;
 }
+
+/*Dropdown menu*/
+
 .dropdown{
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     margin-left: 10px;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 .dropdown div a{
     display: block;
@@ -436,6 +579,7 @@ a:active{
     visibility: visible;
     background-color: black;
     border-radius: 5px;
+    -webkit-transition: 0.6s;
+    -o-transition: 0.6s;
     transition: 0.6s;
 }
-

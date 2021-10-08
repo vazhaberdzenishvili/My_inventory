@@ -17,66 +17,66 @@
 <body>
     <header>
         <nav class="navbar">
-            <div class = "navbar_brand">
-                <a class="nav-link" href="{{ url_for('main.home_page') }}">MyInventory</a>
+            <div class="toggle-button">
+                <i class="fas fa-bars"></i>
             </div>
-                <div class="guest-nav-list">
-        {#          Guest navigation#}
-                    <ul class="nav-list">
-                        <li class="nav-link">
-                            <a href="{{ url_for('main.home_page') }}">{{ _('Home')}}</a>
-                        </li>
-                        <li class="nav-link">
-                            <a href="{{ url_for('main.about_us') }}">{{ _('About')}}</a>
-                        </li>
-                        <li class="nav-link">
-                            <a href="{{ url_for('StoreModel.store') }}">{{ _('Inventory')}}</a>
-                        </li>
-                    </ul>
+            <div class = "navbar_brand">
+                    <a class="nav-link" href="{{ url_for('main.home_page') }}">MyInventory</a>
                 </div>
-            <div class="user-nav-list">
-                <ul class="nav-list">
-                                  {#                User navigation    #}
-                    {% if current_user.is_authenticated %}
-        {#                 Amin navigation  #}
-                        {% if current_user.has_role('Admin') %}
+            <div class="guest-nav-list nav-links">
+            {#          Guest navigation#}
+                        <ul class="nav-list">
                             <li class="nav-link">
-                                <a type ='button' class="admin-btn" href ="{{ url_for('admin.index')}} " >{{ _('Admin')}}</a>
+                                <a href="{{ url_for('main.home_page') }}">{{ _('Home')}}</a>
                             </li>
                             <li class="nav-link">
-                                <a href="{{ url_for('logout') }}">{{ _('Logout')}}</a>
+                                <a href="{{ url_for('main.about_us') }}">{{ _('About')}}</a>
                             </li>
+                            <li class="nav-link">
+                                <a href="{{ url_for('StoreModel.store') }}">{{ _('Inventory')}}</a>
+                            </li>
+                        </ul>
+                    </div>
+            <div class="user-nav-list nav-links">
+                    <ul class="nav-list">
+                                      {#                User navigation    #}
+                        {% if current_user.is_authenticated %}
+            {#                 Amin navigation  #}
+                            {% if current_user.has_role('Admin') %}
+                                <li class="nav-link">
+                                    <a type ='button' class="admin-btn" href ="{{ url_for('admin.index')}} " >{{ _('Admin')}}</a>
+                                </li>
+                                <li class="nav-link">
+                                    <a href="{{ url_for('logout') }}">{{ _('Logout')}}</a>
+                                </li>
+                            {% else %}
+                                <li class="nav-link">
+                                    <a href="{{ url_for('logout') }}">{{ _('Logout')}}</a>
+                                </li>
+            {#                  User without status Admin    #}
+                            {% endif %}
                         {% else %}
                             <li class="nav-link">
-                                <a href="{{ url_for('logout') }}">{{ _('Logout')}}</a>
+                                <a href="{{ url_for('UserModel.login') }}">{{ _('Login')}}</a>
                             </li>
-        {#                  User without status Admin    #}
-                        {% endif %}
-                    {% else %}
-                        <li class="nav-link">
-                            <a href="{{ url_for('UserModel.login') }}">{{ _('Login')}}</a>
-                        </li>
-                        <li class="nav-link">
-                            <a href="{{ url_for('UserModel.registration') }}">{{ _('Register')}}</a>
-                        </li>
-                 </ul>
-                {% endif %}
-                <div class="dropdown">
-                    <i class="fas fa-globe"></i>
-                    <div>
-                        <a href="/en" class="flag">
-                            <img src="https://www.countryflags.io/GB/shiny/24.png" alt="en">
-                        </a>
-                        <a href="/ka" class="flag">
-                            <img src="https://www.countryflags.io/ge/shiny/24.png" alt="ge">
-                        </a>
+                            <li class="nav-link">
+                                <a href="{{ url_for('UserModel.registration') }}">{{ _('Register')}}</a>
+                            </li>
+                     </ul>
+                    {% endif %}
+                    <div class="dropdown">
+                        <i class="fas fa-globe"></i>
+                        <div>
+                            <a href="/en" class="flag">
+                                <img src="https://www.countryflags.io/GB/shiny/24.png" alt="en">
+                            </a>
+                            <a href="/ka" class="flag">
+                                <img src="https://www.countryflags.io/ge/shiny/24.png" alt="ge">
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
         </nav>
-        <div class="nav_burger">
-            <i class="fas fa-bars"></i>
-        </div>
     </header>
 
 <div class="container">
@@ -88,7 +88,6 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="{{ url_for('static', filename='js/toggle_password.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/language_picker.js') }}"></script>
     <script src="{{ url_for('static', filename='js/nav_burger.js') }}"></script>
 
 </body>

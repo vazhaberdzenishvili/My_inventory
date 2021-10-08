@@ -1,13 +1,3 @@
-@media (max-width: 800px) {
-    .container {
-        max-width: 500px;
-    }
-}
-@media (max-width: 800px) {
-    .login_container {
-        max-width: 500px;
-    }
-}
 @media (max-width: 400px) {
     .regfield .form-control{
         margin: 3px auto;
@@ -16,32 +6,7 @@
         margin: 5px auto;
     }
 }
-@media(max-width: 800px){
-    .nav_burger{
-        display: block;
-    }
-    .nav-list{
-        margin-left: 80px;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .user-nav-list{
-        justify-content: center;
-    }
-    .navbar{
-        position: fixed;
-        flex-direction: column;
-        align-items: flex-start;
-        background: black;
-        width: 100%;
-        margin-top: 200px;
-    }
-    .nav-link a:hover,a.active{
-        background: none;
-        color: white;
-    }
-}
+
 @media(min-width: 1400px){
     .jumbotron{
         margin-top: 14%;
@@ -79,5 +44,152 @@
     }
     .store-container{
         margin: 80px 0 0 8%;
+    }
+}
+@media(max-width: 600px){
+    .jumbotron{
+        margin-top: 25%;
+    }
+    .login_container{
+        margin: 30% auto;
+        width: 280px;
+    }
+    .login_form{
+        width: 350px;
+        height: 500px;
+    }
+    .logfield .form-control{
+        width: 230px;
+        margin: 10px auto;
+    }
+    .register_container{
+        margin: 25% auto;
+    }
+    .register_form{
+        width: 300px;
+        height: 600px;
+    }
+    .regfield .form-control{
+        width: 230px;
+        margin: 10px auto;
+    }
+    .regfield .form-control:focus{
+        width: 280px;
+    }
+    #reg_title{
+        margin: 0 0 25px 0;
+        font-size: 35px;
+    }
+    .login_redirect{
+        font-weight: normal;
+        margin-top: 15px;
+        font-size: 20px;
+    }
+    .store-container{
+        margin: 80px 0 0 8%;
+    }
+}
+@media(max-height: 600px){
+    .jumbotron{
+        margin-top: 15%;
+    }
+    .login_container{
+        margin: 10% auto;
+        width: 280px;
+    }
+    .login_form{
+        height: 480px;
+    }
+    #login_title{
+        font-size: 30px;
+        font-family: cursive;
+        margin: 0 0 20px 0;
+    }
+    .social_buttons a{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .register_container{
+        margin: 10% auto;
+    }
+    .register_form{
+        width: 290px;
+        height: 500px;
+    }
+    #reg_title{
+        margin: 0;
+        font-size: 30px;
+    }
+    .regfield .form-control{
+        width: 230px;
+        margin: 5px auto;
+    }
+}
+@media (max-width: 800px) {
+    .navbar {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: start;
+            -ms-flex-align: start;
+                align-items: flex-start;
+    }
+    .user-nav-list{
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        margin-left: 20px;
+    }
+    .dropdown{
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        margin: -20px 50px 18px 0;
+    }
+    .dropdown i{
+        display: none;
+    }
+    .dropdown div{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        position: relative;
+        visibility: visible;
+    }
+    .dropdown div a img{
+        margin: 5px;
+        width: 40px;
+    }
+    .nav-list{
+        -webkit-box-align: start;
+            -ms-flex-align: start;
+                align-items: flex-start;
+    }
+    .toggle-button {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+    .nav-links {
+        display: none;
+    }
+    .nav-links ul {
+        width: 100%;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+    }
+    .nav-links.active {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
     }
 }
