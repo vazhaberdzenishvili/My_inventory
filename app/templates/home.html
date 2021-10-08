@@ -1,15 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="welcome_container">
-          <span class="text1">{{ _('Welcome to the site!')}} </span>
-          <span class="text2">{{ _('This is a site for online inventory management')}} </span>
-{#           {%  if current_user.is_authenticated %}#}
-{#              <p class="lead">#}
-{#                <a class="btn btn-primary btn-lg" href="{{url_for('StoreModel.store')}}" role="button">{{ _('Store')}}</a>#}
-{#              </p>#}
-{#           {%  else %}#}
-         <span class = 'text3'>{{ _('To use the service, please login')}} </span>
-         <a class="btn btn-primary btn-lg" href="{{url_for('UserModel.login')}}" role="button">{{ _('Login')}} </a>
-{#           {%  endif %}#}
-    </div>
+
+        <div class="jumbotron">
+          <h1 class="display-4">{{ _('Welcome to the site!')}}</h1>
+          <p class="lead">{{ _('This is a site for online inventory management')}}</p>
+          <hr class="my-4">
+           {%  if current_user.is_authenticated %}
+              <p class="lead">
+                <a class="btn btn-primary btn-lg" href="{{url_for('StoreModel.store')}}" role="button">{{ _('Store')}}</a>
+              </p>
+           {%  else %}
+               <p class="next_login">{{ _('To use the service, please login')}}</p>
+               <p>
+                  <a class="btn btn-primary btn-lg" href="{{url_for('UserModel.login')}}" role="button">{{ _('Login')}}</a>
+               </p>
+           {%  endif %}
+        </div>
 {% endblock content %}

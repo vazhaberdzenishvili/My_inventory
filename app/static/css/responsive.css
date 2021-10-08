@@ -43,7 +43,41 @@
     }
 }
 @media(min-width: 1400px){
+    .jumbotron{
+        margin-top: 14%;
+    }
     .login_container{
-        margin-top: 10%;
+        margin: 14% auto;
+        width: 350px;
+    }
+    .login_form{
+        width: 320px;
+        height: 500px;
+    }
+    .register_container{
+        margin: 12% auto;
+    }
+    .register_form{
+        width: 400px;
+        height: 600px;
+    }
+    .regfield .form-control{
+        width: 230px;
+        margin: 10px auto;
+    }
+    .regfield .form-control:focus{
+        width: 280px;
+    }
+    #reg_title{
+        margin: 0 0 25px 0;
+        font-size: 35px;
+    }
+    .login_redirect{
+        font-weight: normal;
+        margin-top: 15px;
+        font-size: 20px;
+    }
+    .store-container{
+        margin: 80px 0 0 8%;
     }
 }

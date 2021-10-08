@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% from 'macros.html' import flash_alert %}
 {% block content %}
-
-<div class="store-container">
     {{ flash_alert() }}
+<div class="store-container">
+
     <div class="col md-12" id="store_table " >
         <div class="table_addon">
             <form class="search_bar" action = "{{ url_for('StoreModel.store') }}" method="POST">
